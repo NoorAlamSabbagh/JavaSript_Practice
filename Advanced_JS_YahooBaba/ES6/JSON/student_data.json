@@ -1,0 +1,17 @@
+[
+    {
+       "name":"Noor Alam",
+        "age":25,
+        "city":"Lucknow"
+    },
+    {
+       "name":"Nehal",
+        "age":25,
+        "city":"Banglore"
+    },
+    {
+       "name":"Rajesh",
+        "age":27,
+        "city":"Sultanpur"
+    }
+]

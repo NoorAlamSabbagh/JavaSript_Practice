@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Poppins:wght@300&display=swap");
+
+      body {
+        font-family: "Inconsolata", sans-serif;
+        background-color: #2a364f;
+        display: grid;
+        place-items: center;
+      }
+
+      button {
+        display: inline-block;
+        background: #f8b627;
+        color: #f4f4f4;
+        font-size: 16px;
+        font-weight: normal;
+        width: 132px;
+        text-align: center;
+        border-radius: 3px;
+        transition: 400ms;
+        text-decoration: none;
+        padding: 10px 22px;
+        z-index: 100000;
+        outline: none;
+        border: none;
+      }
+
+      p, form {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      h1 {
+        color: aquamarine;
+      }
+
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="para">Please like the video</p>
+    <p class="para">Please share this video</p>
+    <p>Don't forget to subscribe my channel</p>
+    <p id="heading">Change the content of the h1</p>
+
+
+    <form>
+        <label for="">Male</label>
+        <input type="radio" name="gender" id="">
+        <label for="">female</label>
+        <input type="radio" name="gender" id="">
+        <label for="">MaleFemale</label>
+        <input type="radio" name="gender" id="">
+    </form>
+
+    <button onClick="changeContent()">Click Me</button>
+
+    <script>
+      const changeContent = () => {
+        //we can directy write
+        // document.getElementById('heading').innerHTML="welcome to thapa"
+
+
+        //by taking the Reference, heading is the object here
+        // const headingchange = document.getElementById('heading');
+        // headingchange.innerHTML = "welcome to thapa";
+
+        //
+        // console.log(document.getElementsByClassName('para'));
+        // console.log(document.getElementsByTagName('p'));
+        // console.log(document.getElementsByName('gender'));
+
+        //
+        document.querySelector('#heading').innerHTML = "I changed again";
+        document.querySelector('.para').innerHTML = "I changed again";
+
+
+
+        //Now the same we have is the querry selectors
+        //querySelector returns the first matching value whereas
+        //QuerrySelectorAll() will returns all the elements
+      };
+    </script>
+  </body>
+</html>

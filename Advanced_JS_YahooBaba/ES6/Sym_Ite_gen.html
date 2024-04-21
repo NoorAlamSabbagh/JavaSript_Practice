@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Lec 18: Symbols
+      //  let id = Symbol("Hello");
+      //  console.log(id);
+      //  alert(id.toString());
+
+      //
+      // let id1 = Symbol("Hello1");
+      // let id2= Symbol("Hello2");
+      // console.log(id1 === id2);
+
+      // let str1 = "Hello1";
+      // let str2= "Hello1";
+      // console.log(str1 === str2);
+
+      //
+      // let age = Symbol("age");
+      // let user = {
+      //   name: "Yahoo Baba",
+      //   class: "Btech",
+      //   [age]: 25,
+      // };
+      // console.log(user);
+
+      //
+      // let age = Symbol("age");
+      // let user = {
+      //   name: "Yahoo Baba",
+      //   class: "Btech",
+      // };
+      // user[age] = 25,
+      // console.log(user.class)
+      // console.log(user[age])
+
+      //
+      // let age = Symbol("age");
+      // let user = {
+      //   name: "Yahoo Baba",
+      //   class: "Btech",
+      // };
+      // user[age] = 25;
+      // user["gender"] = "Male";
+
+      //  console.log(user);
+      // console.log(JSON.stringify(user));
+
+
+
+    //Lec19: Iterators
+    // let numbers = [100, 200, 300];
+    // let iter = numbers[Symbol.iterator]();
+    // iter.next();
+    // iter.next();
+    // console.log(iter.next());
+
+
+    //
+    // let numbers = [100, 200, 300];
+    // let iter = numbers[Symbol.iterator]();
+    
+    // iter.next();
+    // console.log(iter.next().value);
+    // console.log(iter.next().done);
+
+    //
+    // let numbers = [100, 200, 300, 400, 500];
+    // let iter = numbers[Symbol.iterator]();
+    
+    // let result = iter.next();
+    // while(!result.done){
+    //   console.log(result.value);
+    //   result = iter.next();
+    // }
+
+    //
+    // let numbers = [100, 200, 300, 400, 500];
+    // let str = "Noor Alam";
+    // let iter = str[Symbol.iterator]();
+    
+    // let result = iter.next();
+    // while(!result.done){
+    //   console.log(result.value);
+    //   result = iter.next();
+    // }
+
+    //
+  //   let str = "Noor Alam";
+  //  for(let char of str){
+  //   console.log(char)
+  //  }
+    
+
+  //
+// function numberIterator(arr){
+//   var nextNum = 0;
+//   return{
+//     next(){
+//       if(nextNum<arr.length){
+//         return{
+//           value: arr[nextNum++],
+//           done: false
+//         }
+//       }else{
+//         return{
+//           done: true
+//         }
+//       }
+//     }
+//   }
+// }
+    
+//  let numbers = [100, 200, 300, 400, 500];
+//  let num = numberIterator(numbers);
+// console.log(num.next())
+// console.log(num.next().value)
+// num.next();
+// console.log(num.next())
+// console.log(num.next())
+// console.log(num.next())
+
+
+
+
+//
+//Lec 20: Generators
+// function generatorit(){
+//   console.log('First Message');
+//   console.log('Second Message');
+// }
+// let g = generatorit()
+// console.log(g.next())
+
+
+//
+// function *generatorit(){
+//   console.log('First Message');
+//   yield 'Yield No.1';
+//   console.log('Second Message');
+//   yield 'Yield No.2';
+// }
+// let g = generatorit()
+// console.log(g.next())
+// console.log(g.next())
+// console.log(g.next())
+
+//
+// function *generatorit(){
+//   yield 'Yield No.1';
+//   yield 'Yield No.2';
+//   yield 'Yield No.2';
+// }
+// let g = generatorit()
+// console.log(g.next().value)
+// g.next()
+// console.log(g.next())
+
+
+//
+// function *generatorit(){
+//   yield 'Yield No.1';
+//   yield 'Yield No.2';
+//   yield 'Yield No.3';
+// }
+// let g = generatorit()
+// for(let value of g){
+//   console.log(value)
+// }
+
+
+//
+// function *generateit(){
+//   let nextNum = 300;
+//   while(true){
+//     yield(nextNum++);
+//   }
+// }
+// let g = generateit()
+//   console.log(g.next().value);
+//   console.log(g.next());
+//   console.log(g.next());
+//   console.log(g.next());
+//   console.log(g.next());
+//   console.log(g.next());
+
+
+//
+// function *generateit(){
+//   let nextNum = 300;
+//   while(true){
+//     yield(nextNum++);
+//   }
+// }
+// let g = generateit()
+//   console.log(g.next().value);
+//  // for(let value of g){//browser will hank
+// //   console.log(value)
+// // }
+
+
+
+
+//
+// function *generateit(){
+//   let nextNum = 300;
+//   while(true){
+//     yield(nextNum++);
+//   }
+// }
+// let g = generateit()
+//  for(let value of g){
+//   if(value>305) break;//browser will hank
+//   console.log(value)
+// }
+
+//
+// function *generateit(){
+//   yield 55;
+//   yield* ['Node','Angular','React'];
+// }
+// let g = generateit();
+// console.log(g.next().value);
+// console.log(g.next().value);
+// console.log(g.next().value);
+// console.log(g.next().value);
+// console.log(g.next().value);
+
+//
+// function *generateit(){
+//   yield 'PHP'
+//   yield 'Node'
+//   yield 'Angular'
+//   yield 'React'
+//   yield 'Java'
+// }
+// let g = generateit();
+// console.log([...g])
+
+//
+// function *generateit(){
+//   yield 'PHP'
+//   yield 'Node'
+//   yield 'Angular'
+//   yield 'React'
+//   yield 'Java'
+// }
+// let g = generateit();
+// console.log(g.next().value);
+// console.log(g.return('Ending Now'))
+// console.log(g.next().value);
+
+
+
+
+
+//
+//Lec21: StrictMode
+"use strict";
+var a = 10;
+
+function test(){
+ var b = 10
+}
+test()
+
+//
+// // "use strict";
+// function test(a,b,b){
+//   return a+b+b;
+// }
+// console.log(test(10,20,30))
+
+
+
+//
+//Lec22:Error Handling
+// try{
+// console.log('start of try');
+// babla();
+// console.log('End of try');
+// }
+// catch(error){
+// console.log(error)
+// }
+
+//
+// try{
+//   babla;
+// }
+// catch(error){
+// console.log(error.name);
+// console.log(error.message);
+// console.log(error.stack);
+// }
+
+//
+// try{
+//   babla;
+// }catch(error){
+//   if(error instanceof ReferenceError){
+//     console.log('ReferenceError')
+//   }else if(error instanceof TypeError){
+//     console.log('TypeError')
+//   }else{
+//     console.log('Unknown Error')
+//   }
+// }
+
+
+//
+//try catch ka jyda use server se data aana ho json form me tab jyda use karte ha
+// try{
+//   let json = '{"name":"Yahoo Baba", "age": 25}';
+//   let user = JSON.parse(json);
+
+//   if(!user.name){
+//     throw new Error("Incomplete data: No name");
+//   }
+//   console.log(user.name)
+//   console.log(user.age)
+// }catch(error){
+//   console.log(error)
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

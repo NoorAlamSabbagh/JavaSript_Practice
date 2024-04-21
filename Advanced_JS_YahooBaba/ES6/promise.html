@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // A Promise represents something that is eventually fulfilled.
+      // A Promise can either be rejected or resolved based on the operation outcome.
+      // ES6 Promise is the easiest way to work with asynchronous programming in JavaScript.
+
+      //
+      // let complete = true;
+      // let prom = new Promise(function (resolve, reject) {
+      //   if (complete) {
+      //     resolve("I am successful person");
+      //   } else {
+      //     reject("I am failed");
+      //   }
+      // });
+      // console.log(prom);
+
+      //
+      //     function prom(complete){
+      //         return new Promise(function(resolve,reject){
+      //         if(complete){
+      //             resolve("I am successful person");
+      //         }else{
+      //             reject("I am failed");
+      //         }
+      //     });
+      // }
+      // console.log(prom(true));
+
+      //
+      //   function prom(complete) {
+      //     return new Promise(function (resolve, reject) {
+      //         console.log("Fetching data, please wait.")
+      //      setTimeout(()=>{
+      //         if (complete) {
+      //         resolve("I am successful person");
+      //       } else {
+      //         reject("I am failed");
+      //       }
+      //      }, 3000)
+      //     });
+      // }
+      //     let onfulfilment = (result)=>{
+      //         console.log(result);
+      //     }
+      //     let onRejection = (error)=>{
+      //         console.log(error);
+      //     }
+      // // prom(true).then(onfulfilment)
+      // // prom(false).catch(onRejection)
+      //  prom(false).then(onfulfilment).catch(onRejection);
+
+      //
+      //  function prom(complete) {
+      //     return new Promise(function (resolve, reject) {
+      //         console.log("Fetching data, please wait.")
+      //      setTimeout(()=>{
+      //         if (complete) {
+      //         resolve("I am successful person");
+      //       } else {
+      //         reject("I am failed");
+      //       }
+      //      }, 3000)
+      //     });
+      // }
+
+      //  prom(false).then((result)=>{
+      //   console.log(result);
+      //  }).catch((error)=>{
+      //   console.log(error)
+      //  })
+
+      //
+      // function prom(a,b) {
+      //     return new Promise(function (resolve, reject) {
+      //         console.log("Fetching data, please wait.")
+      //         var c = a/b;
+      //      setTimeout(()=>{
+      //         if (c) {
+      //         resolve(`Your answer: ${c}`);
+      //       } else {
+      //         reject("failed to calculate");
+      //       }
+      //      }, 2000)
+      //     });
+      // }
+
+      //  prom(5,2).then((result)=>{
+      //   console.log(result);
+      //  }).catch((error)=>{
+      //   console.log(error)
+      //  })
+
+      //
+      // function prom(a,b) {
+      //     return new Promise(function (resolve, reject) {
+      //         console.log("Fetching data, please wait.")
+
+      //      setTimeout(()=>{
+      //       $.get("https://jsonplaceholder.typicode.com/users", function(data){
+      //         resolve(data);
+      //       }).fail(err=>{
+      //         reject("failed to load JSON data")
+      //       })
+      //      }, 2000)
+      //     });
+      // }
+      //  prom(5,2).then((result)=>{
+      //   console.log(result);
+      //  }).catch((error)=>{
+      //   console.log(error)
+      //  })
+
+      //
+      //Lec14: PromiseAll
+      // let p1 = new Promise((resolve, reject)=>{
+      //   setTimeout(()=>{
+      //     console.log('The first promise has been resolved');
+      //     resolve(10)
+      //   },1*1000);
+      // })
+
+      // let p2 = new Promise((resolve, reject)=>{
+      //   setTimeout(()=>{
+      //     console.log('The first promise has been resolved');
+      //     resolve(20)
+      //   },2*1000);
+      // })
+
+      // let p3 = new Promise((resolve, reject)=>{
+      //   setTimeout(()=>{
+      //     console.log('The first promise has been resolved');
+      //     // resolve(20)
+      //     reject("Failed")
+      //   },3*1000);
+      // })
+
+      // var total = 0;
+      // Promise.all([p1,p2,p3]).then((result)=>{
+      //   for(var i in result){total += result[i];}
+      //   console.log(`Results: ${results}`)
+      //   console.log(`Total: ${total}`)
+      // }).catch((error)=>{
+      //   console.log(`Error: ${error}`)
+      // });
+
+      //
+      // let promiseCall = function(returnData, message){
+      //   return function(resolve, reject){
+      //       setTimeout(()=>{
+      //         console.log(`The ${message} promise has been resolved`);
+      //         resolve(returnData)
+      //       },returnData*1000);
+      //      }
+      //     }
+
+      //    let p1 = new Promise(promiseCall(10,"first"));
+      //    let p2 = new Promise(promiseCall(20,"second"));
+      //    let p3 = new Promise(promiseCall(30,"third"));
+      //    let p4 = new Promise(function(resolve, reject){
+      //     reject("The 4th Promise has rejected")
+      //    });
+
+      //     var total = 0;
+      //     Promise.all([p1,p2,p3,p4]).then((result)=>{
+
+      //       for(var i in result){total += result[i];}
+
+      //       console.log(`Results: ${result}`)
+      //       console.log(`Total: ${total}`)
+      //     }).catch((error)=>{
+      //       console.log(`Error: ${error}`)
+      //     });
+
+      //
+
+      //
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="myForm">
+      Title <input type="text" id="titleText" /> <br /><br />
+      Body <input type="text" id="bodyText" /> <br /><br />
+      UserId <input type="text" id="userid" /> <br /><br />
+      <input type="submit" id="saveForm" />
+    </form>
+    <script>
+      // fetch("readme.txt")
+      // .then((response)=>{
+      //     return response.text();
+      // })
+      // .then((data)=>{
+      //     // console.log(data);
+      //     document.write(data);
+      // })
+
+      //
+      // fetch("readme.txt")
+      // .then((response)=> response.text())
+      // .then((data)=> document.write(data))
+
+      //
+      // fetch("https://jsonplaceholder.typicode.com/users")
+      // .then((response)=> response.json())
+      // .then((data) => console.log(data))
+      // // .then((data) => document.write(data))
+
+      //
+      // fetch("https://jsonplaceholder.typicode.com/users")
+      // .then((response)=> response.json())
+      // .then((data) => console.log(data))
+      // .catch((error) => document.write("cannot fetch data"))
+
+      //
+      // fetch("https://jsonplaceholder.typicode.com/users")
+      // .then((response)=> response.json())
+      // .then((data)=>{
+      //     console.log(data);
+      //     for(var x in data){
+      //     document.write(`${data[x].name} - ${data[x].email} - ${data[x].address.city}<br>`)
+      //     }
+      // })
+
+      //
+      // fetch("https://jsonplaceholder.typicode.com/users")
+      // .then((response)=> response.json())
+      // .then((data)=>{
+      //     console.log(data);
+      //     for(var x in data){
+      //     var a = `${data[x].name} - ${data[x].email} - ${data[x].address.city}<br>`;
+      //     document.write(a);
+      //     }
+      // })
+      // .catch((error) => document.write("cannot fetch data"))
+
+      //
+      //   fetch("JSON/student_data.json")
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       console.log(data);
+      //       for (var x in data) {
+      //         var a = `${data[x].name} - ${data[x].age} - ${data[x].city}<br>`;
+      //         document.write(a);
+      //       }
+      //     })
+      //    .catch((error) => document.write("cannot fetch data"));
+
+      //
+      //Server par data kaise get, update, read aur delete karna
+      // fetch("https://jsonplaceholder.typicode.com/users",{
+      //     method: "POST",
+      //     body: JSON.stringify({
+      //         title:'foo',
+      //         body:'bar',
+      //         userId: 1,
+      //     }),
+      //     headers:{
+      //      'Content-type':'application/json; charset=UTF-8',
+      //     }
+      // })
+      // .then((response)=> response.json())
+      // .then((json)=> console.log(json))
+
+      //
+        // var obj = {
+        //   title: "foo",
+        //   body: "bar",
+        //   userId: 1,
+        // };
+
+        // fetch("https://jsonplaceholder.typicode.com/users", {
+        //   method: "POST",
+        //   body: JSON.stringify(obj),
+        //   headers: {
+        //     "Content-type": "application/json; charset=UTF-8",
+        //   },
+        // })
+        //   .then((response) => response.json())
+        //   .then((json) => console.log(json));
+
+      //
+      //FORM TAG KA EXAMPLE LIYA HA
+      // HTML ME FORM KA CODE HA
+      //   document.getElementById("saveForm").addEventListener("click", function(e){
+      // e.preventDefault();
+      //   var obj = {
+      //       title: document.getElementById("titleText").value,
+      //       body: document.getElementById("bodyText").value,
+      //       userId: document.getElementById("userid").value,
+      //     };
+
+      //     fetch("https://jsonplaceholder.typicode.com/users", {
+      //       method: "POST",
+      //       body: JSON.stringify(obj),
+      //       headers: {
+      //         "Content-type": "application/json; charset=UTF-8",
+      //       },
+      //     })
+      //       .then((response) => response.json())
+      //       .then((json) => console.log(json))
+      //   })
+
+      //
+      //lecture17 Async and Await
+      // async function test() {
+      //   return "Hello";
+      // }
+      // test().then((result) => {
+      //   console.log(result);
+      // });
+
+      //
+      // let test = async function(){
+      //   return "Hello";
+      // }
+      // test().then((result) => {
+      //   console.log(result);
+      // });
+
+      //
+      // let test = async ()=>
+      //   "Hello";
+      // test().then((result) => {
+      //   console.log(result);
+      // });
+
+      //
+      // async function test(){
+      //   console.log("A");
+      //   await console.log("B");
+      //   console.log("C");
+      // }
+      // test();
+      // console.log("D")
+      // console.log("E")
+
+      //
+      // async function test(){
+      //   console.log("2: message");
+      //   await console.log("3: message");
+      //   console.log("4: message");
+      // }
+      // console.log("1: message");
+      // test();
+      // console.log("5: message")
+
+      //
+      // async function test(){
+      //   const response = await fetch("JSON/student_data.json");
+      //   const students = await response.json();
+      //   return students;
+      // }
+      // let a = test();
+      // console.log(a);
+
+      //
+      // async function test(){
+      //   const response = await fetch("JSON/student_data.json");
+      //   const students = await response.json();
+      //   return students;
+      // }
+      // let a = test()
+      // .then((res)=>{
+      //   console.log(res)
+      // })
+      // .catch((err)=>{
+      //   console.log(err)
+      // })
+
+      //
+      // async function test() {
+      //   return (await fetch("JSON/student_data.json")).json();
+      // }
+      // test()
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+
+      //Error Handling
+      // async function test() {
+      //   try {
+      //     const response = await fetch("JSON/student_data.json");
+      //     const students = await response.json();
+      //     return students;
+      //   } catch(err){
+      //     console.log(err)
+      //   }
+      // }
+      // test().then((res)=>{
+      //   console.log(res);
+      // })
+
+    
+      
+    </script>
+  </body>
+</html>

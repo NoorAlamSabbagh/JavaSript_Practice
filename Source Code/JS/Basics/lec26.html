@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //While loop
+        /*var a = 1;
+        while(a<=10){
+            document.write(a+") Hello Noor Alam<br>");
+            a++;
+        }
+        */
+       //do while loop
+       /*var a = 1;
+       do{
+        document.write("Hello Noor Alam<br>");
+        a++;
+       }while(a<=10)
+       */
+
+       //For loop
+       /*
+       for(var a=1; a<=10; a++){
+        document.write("Hello Noor Alam <br>")
+       }
+       */
+
+       //Continue and break
+       /*for(var a=1; a<=10; a++){
+        if(a==3){
+            document.write("Hey Alam");
+            break;
+        }
+        document.write("Hello Noor Alam <br>")
+       }
+       */
+
+       //Even Odd
+      /* for(var a=1;a<=10; a++){
+        if(a%2==1){
+            document.write(a + "<br>")
+        }
+       }
+       */
+
+       //Nested loop
+       /*for(var a=1; a<=100; a += 10){
+         for(var b=a; b < a+10; b++){
+            document.write(b + " ");
+         }
+         document.write("<br>")
+       }
+       */
+
+       //Nested Loop Examples
+      /* for(var a=1; a<=5; a++){
+         for(var b=1; b<=a; b++){
+            document.write(b + " ");
+         }
+         document.write("<br>")
+       }
+       */
+
+       /*for(var a=1; a<=5; a++){
+         for(var b=1; b<=a; b++){
+            document.write(a + " ");
+         }
+         document.write("<br>")
+       }
+       */
+
+       /*for(var a=5; a>=1; a--){
+         for(var b=1; b<=a; b++){
+            document.write(a + " ");
+         }
+         document.write("<br>")
+       }
+       */
+
+       /*for(var a=5; a>=1; a--){
+         for(var b=a; b>=1; b--){
+            document.write(b + " ");
+         }
+         document.write("<br>")
+       }
+       */
+
+        /*var array =[10, 20, 30, 40, 50];
+        var sum = 0;
+        document.write("<ul>");
+        for(var a=0; a<=4; a++){
+            document.write("<li>" + array[a] +"</li>");
+            sum += array[a];
+        }
+        document.write("</ul>");
+        document.write("Total sum: " + sum);
+        */
+
+        /*var array = new Array(3);
+
+        for(var g=0; g<3; g++){
+            array[g] = prompt("Enter the value: ");
+        }
+        document.write("<ul>");
+        for(var a=0; a<=3; a++){
+            document.write("<li>" + array[a] +"</li>");
+       
+        }
+        document.write("</ul>");
+        */
+
+        //Multidimensional Array
+        /*(var array = [
+            ["Harry",18,"Male","B.Com"],
+            ["Sunny",19,"Male","BCA"],
+            ["Sarah",18,"Male","BCA"],
+            ["Tom",17,"Male","BA"],
+            ["Alam",17,"Male","BA"]
+        ];
+
+        // document.write(array.length);
+        document.write("<table border='1px' cellspacing ='0'>");
+            for(var a=0; a<array.length; a++){
+                document.write("<tr>");
+                    for(var b=0; b<array[a].length; b++){
+                        document.write("<td>" + array[a][b] + "</td>")
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>")
+        */
+
+        //Modify and delete array
+        /*
+        var a = ["Harry", 18, "Male", "BCA"]
+        document.write(a +"<br>");
+        a[0] = "Sunny";
+        document.write(a);
+        a[1] = "Sunny";
+        document.write(a +"<br>");
+
+        delete a[1];
+        document.write(a +"<br>");
+        */
+
+        //Method or Functions
+        var a = ["Sanjay", "Aman", "Rehman", "Karan"];
+        // document.write(a + "<br><br>");
+        // a.sort();
+        // document.write(a + "<br><br>")
+
+        // a.reverse();
+        // document.write(a + "<br><br>")
+
+        // a.pop();
+        // document.write(a + "<br><br>")
+
+        // a.push("Rahul");
+        // document.write(a + "<br><br>")
+
+        // a.push("Salman");
+        // document.write(a + "<br><br>")
+
+        // a.shift();
+        // document.write(a + "<br><br>")
+
+        // a.unshift("Rahul");
+        // document.write(a + "<br><br>")
+
+        /*b = a.concat("Alam","Noor","Nehal");
+        var b = ["Alam","Noor","Nehal"];
+        var c = a.concat(b);
+        document.write(c +"<br><br>");
+        var d = c.join("-");
+        document.write(d);
+        */
+       
+
+       /*  document.write(a + "<br><br>")
+        var b = a.slice(-3, -1);
+        document.write(b + "<br><br>")
+
+        // a.splice(2,0,"Noor","Alam");
+        // a.splice(2,2,"Noor","Alam");
+        a.splice(-2,1,"Noor","Alam");
+        document.write(a + "<br><br>")
+*/
+    //    document.write(a + "<br><br>")
+
+      /* var a = 10;
+    //    var b = Array.isArray(a);
+       document.write(a + "<br><br>")
+       if(Array.isArray(a)){
+        document.write("This is an Array");
+       }else{
+        document.write("This is not an Array")
+       }
+       */
+
+       /*document.write(a + "<br><br>")
+    //    var b = a.indexOf("Rehman");
+       var b = a.indexOf("Rehman", 2);
+       document.write(b + "<br><br>")
+
+       var c = a.lastIndexOf("Aman");
+       document.write(c + "<br><br>")
+       */
+
+      /* var b = a.includes("aman");
+       document.write(b + "<br><br>")*/
+
+       /*var ages = [10, 13, 18, 20]
+       document.write(ages + "<br><br>");
+
+    //    var b = ages.some(checkAdult);
+       var b = ages.every(checkAdult);
+       document.write(b + "<br><br>")
+
+       function checkAdult(age){
+        return age >= 18;
+       }
+       */
+
+       /*var ages = [10, 13, 18, 20]
+       document.write(ages + "<br><br>");
+
+    //    var b = ages.find(checkAdult);
+       var b = ages.findIndex(checkAdult);
+       document.write(b + "<br><br>")
+
+       function checkAdult(age){
+        return age >= 18;
+       }
+       */
+
+
+       /*var ages = [10, 13, 18, 20]
+       document.write(ages + "<br><br>");
+
+    
+       var b = ages.filter(checkAdult);
+       document.write(b + "<br><br>")
+
+       function checkAdult(age){
+        return age >= 18;
+       }
+       */
+
+      /* var a = ["Alam","Noor","Nehal"]
+    //    a.toString();
+    a.fill("Ram")
+       document.write(a);
+       */
+
+
+      
+      /*a.forEach(loop);
+function loop(value,index){
+    //   a.forEach(function(value,index){
+        document.write(index + " : " + value + "<br>")
+      }
+      */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
