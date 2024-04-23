@@ -1,0 +1,17 @@
+//(Day26): Write a function to find the nth fibonacci number
+
+//f(n)= f(n-1)+f(n-2), where
+
+const fibnonacci = (num) => {
+    if(num<=1){
+        return num;
+    }else{
+        return fibnonacci(num-1)+ fibnonacci(num-2)
+    }
+}
+console.log(fibnonacci(0));//Output: 0
+console.log(fibnonacci(1));//Output: 1
+console.log(fibnonacci(2));//Output: 1
+console.log(fibnonacci(3));
+console.log(fibnonacci(4));
+console.log(fibnonacci(5)); 
