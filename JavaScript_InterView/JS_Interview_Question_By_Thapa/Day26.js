@@ -9,9 +9,7 @@ const fibnonacci = (num) => {
         return fibnonacci(num-1)+ fibnonacci(num-2)
     }
 }
-console.log(fibnonacci(0));//Output: 0
-console.log(fibnonacci(1));//Output: 1
-console.log(fibnonacci(2));//Output: 1
-console.log(fibnonacci(3));
-console.log(fibnonacci(4));
-console.log(fibnonacci(5)); 
+console.log("Day26", fibnonacci(0));//Output: 0
+console.log("Day26", fibnonacci(1));//Output: 1
+console.log("Day26", fibnonacci(2));//Output: 1
+console.log("Day26", fibnonacci(3));
