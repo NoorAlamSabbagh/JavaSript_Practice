@@ -1,6 +1,6 @@
 //(9)calculate the average
 const calculateAverage = (arr) => {
-    let total = arr.reduce((accum, currElem) => accum+ currElem, 0);
+    let total = arr.reduce((accum, currElem) => accum + currElem, 0);
     console.log(total);
     return total/arr.length;
 }

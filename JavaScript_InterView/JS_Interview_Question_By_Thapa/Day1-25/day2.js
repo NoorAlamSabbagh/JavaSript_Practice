@@ -17,8 +17,17 @@ if(str.length > 280 || str.trim === 0){
     return false;
 }
 str = str.split(" ");
-// console.log(str[1].toUpperCase());
-// str = str.map((currEle) => console.log(currEle[0]))
+// console.log(str);
+//Output:
+// [ 'my', 'name', 'is', 'thapa', 'technical' ]
+// console.log(str[1].toUpperCase());//Output: NAME
+// str = str.map((currEle) => console.log(currEle[0]));
+//Outpout:
+// m
+// n
+// i
+// t
+// t
 str = str.map((currEle) => 
 // (1)Method
 // currEle.replace(currEle[0], currEle[0].toUpperCase())
@@ -27,7 +36,7 @@ currEle.charAt(0).toUpperCase() + currEle.slice(1)
 )
 // console.log(str);
 str = `#${str.join("")}`;
-console.log(str);
+// console.log(str);
 return str;
 }
 

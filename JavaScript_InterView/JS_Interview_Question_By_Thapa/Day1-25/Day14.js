@@ -10,7 +10,5 @@ for(let i = 1; i<=num; i++){
 return op
 }
 
-
-
 console.log(isPowerOfTwo(8));//output : true
 console.log(isPowerOfTwo(7));//Output: false

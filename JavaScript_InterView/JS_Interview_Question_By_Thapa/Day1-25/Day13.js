@@ -4,8 +4,13 @@ const countVowel = (str) => {
     let vowels = ["a", "e", "i", "o", "u"];
 
     let arr = str.split("");
-    // console.log(arr);
-
+    console.log(arr);
+    //output:
+    // [
+    //     'H', 'e', 'l', 'l',
+    //     'o', 'o', ' ', 'W',
+    //     'o', 'r', 'l', 'd'
+    //   ]
     let count = 0;
     for(let char of arr){
         if(vowels.includes(char.toLowerCase())){

@@ -81,32 +81,33 @@
 
 
 ///////////////////////////////////////
-const findLongestWord = (str) => {
-    let longestWord = "";
-    let currentWord = "";
-
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === " ") {
-            // End of a word
-            if (currentWord.length > longestWord.length) {
-                longestWord = currentWord;
-            }
-            currentWord = ""; // Reset current word
-            console.log("currentWord1", currentWord);
-        } else {
-            // Add character to current word
-            // console.log("str[i]", str[i])
-            currentWord += str[i];
-            // console.log("currentWord2", currentWord)
+function findLongestWord(sentence) {
+    let longestWord = ""; // Initialize variable to store the longest word
+    let currentWord = ""; // Initialize variable to build each word
+    
+    for (let i = 0; i < sentence.length; i++) {
+      const char = sentence[i];
+      
+      // If the character is not a space, add it to the current word
+      if (char !== " ") {
+        currentWord += char;
+      } else {
+        // If a space is encountered, check the length of the current word
+        if (currentWord.length > longestWord.length) {
+          longestWord = currentWord; // Update the longest word
         }
+        currentWord = ""; // Reset current word
+      }
     }
-
-    // Check the last word in the string
+    
+    // Final check for the last word in the string
     if (currentWord.length > longestWord.length) {
-        longestWord = currentWord;
+      longestWord = currentWord;
     }
-
+    
     return longestWord;
-}
-
-console.log(findLongestWord("watch Alam Technical JavaScriptkjgjkv course on Youtube"));
+  }
+  
+  // Test the function
+  console.log(findLongestWord("watch Alam Technical JavaScriptkjgjkv course on Youtube")); // Output: "JavaScriptkjgjkv"
+  

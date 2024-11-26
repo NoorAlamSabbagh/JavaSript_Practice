@@ -2,7 +2,7 @@
 const toCamelCase = (str) => {
     // Method (1)
     // str = str.trim().split(" ");
-    // console.log(str);
+    // console.log("strjjj", str);//Output: hello world thApa
     // str = str.map((curElem, index) => {
     //     if (index === 0) {
     //         return curElem.toLowerCase();

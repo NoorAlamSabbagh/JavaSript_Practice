@@ -7,7 +7,6 @@ const sortAscending = (arr) => {
     return arr.sort((a, b) => a-b);
 }
 
-
 //Example Usage:
 console.log((sortAscending([5, 3, 1, 8]))); //Output: [1, 3, 5, 8]
 

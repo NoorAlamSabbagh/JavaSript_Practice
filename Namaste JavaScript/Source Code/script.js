@@ -967,28 +967,28 @@
 
 
 ///
-const users = [
-    { firstname: "Akshay", lastname: "Saini", age: 25 },
-    { firstname: "Noor", lastname: "Alam", age: 24 },
-    { firstname: "Elon", lastname: "Musk", age: 45 },
-    { firstname: "Deepika", lastname: "Padkone", age: 24 },
-]
-//List of full names
-//["Noor Alam", "Akshay Saini", ....]
+// const users = [
+//     { firstname: "Akshay", lastname: "Saini", age: 25 },
+//     { firstname: "Noor", lastname: "Alam", age: 24 },
+//     { firstname: "Elon", lastname: "Musk", age: 45 },
+//     { firstname: "Deepika", lastname: "Padkone", age: 24 },
+// ]
+// //List of full names
+// //["Noor Alam", "Akshay Saini", ....]
 
-// const output = users.map((x) => x.firstname + " " + x.lastname)
-// console.log(output)
-//
-// const output = users.reduce(function (acc, curr) {
-//     if (acc[curr.age]) {
-//         acc[curr.age] = ++acc[curr.age];
-//     } else {
-//         acc[curr.age] = 1;
-//     }
-//     return acc;
-// }, {})
-// console.log(output)
+// // const output = users.map((x) => x.firstname + " " + x.lastname)
+// // console.log(output)
+// //
+// // const output = users.reduce(function (acc, curr) {
+// //     if (acc[curr.age]) {
+// //         acc[curr.age] = ++acc[curr.age];
+// //     } else {
+// //         acc[curr.age] = 1;
+// //     }
+// //     return acc;
+// // }, {})
+// // console.log(output)
 
-const output = users.filter((x) => x.age<30).map((x) => x.firstname);
-console.log(output)
+// const output = users.filter((x) => x.age<30).map((x) => x.firstname);
+// console.log(output)
 

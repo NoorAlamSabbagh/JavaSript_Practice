@@ -6,17 +6,24 @@
 // the function should return the number of times the specified character 
 // appears in the string
 const countChar = (word, char) => {
-    word = word.toLowerCase();
-    char = char.toLowerCase();
-//   totalCount = word.split("");
+  word = word.toLowerCase();
+  char = char.toLowerCase();
+  // totalCount = word.split("");
+  // console.log(totalCount)//
+  //Output:
+  // [
+  //   'm', 'i', 's', 's',
+  //   'i', 's', 's', 'i',
+  //   'p', 'p', 'i'
+  // ]
   totalCount = word.split("").reduce((accum, currEle) => {
-    if(currEle=== char){
-        accum++;
+    if (currEle === char) {
+      accum++;
     }
     return accum;
   }, 0);
-//   console.log(totalCount)
-    return totalCount;
+  //   console.log(totalCount)
+  return totalCount;
 }
 
 console.log(countChar("MissIssippi", "I")); //Output : 4
