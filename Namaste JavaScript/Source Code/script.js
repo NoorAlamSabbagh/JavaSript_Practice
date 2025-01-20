@@ -85,13 +85,13 @@
 // console.log(x);
 // console.log(getName);
 // var x = 7;
-// var getName2 = function () {
-//     console.log("Namaste Javascript");
-// }
-// // function getName2(){
+// // var getName = function () {//TypeError: getName is not a function
 // //     console.log("Namaste Javascript");
 // // }
-// var getName = () => {
+// // function getName(){
+// //     console.log("Namaste Javascript");
+// // }
+// var getName = () => {//TypeError: getName is not a function
 //     console.log("Namaste Javascript");
 // }
 
@@ -106,8 +106,8 @@
 
 //
 // getName();
-// console.log(x);
-// console.log(getName);
+// console.log(x);//undefined
+// console.log(getName);//[Function: getName]
 // var x = 7;
 // function getName() {
 
@@ -148,7 +148,9 @@
 //     console.log(x);
 // }
 
-
+//<====================Call Stack =======================>
+// A call stack is a way for the JavaScript engine to keep track of its place in code that calls multiple functions. 
+//It has information on what function is being run and what functions are invoked from within that function.
 //Lecture 5: this is Shortest JS Program
 // var a = 10;
 // function b() {
@@ -211,7 +213,7 @@
 //     }
 // }
 // a();
-// console.log(b);
+// console.log(b);//ReferenceError: b is not defined
 
 
 //
@@ -221,7 +223,7 @@
 // console.log(returnLarger([6, 46, 54, 6, 56, 54, 65, 4, 65], 50))
 
 
-//Lecture 9: let & const in JS(Temporal Dead Zone)
+//<==================Lecture 9: let & const in JS(Temporal Dead Zone)===============>
 // console.log(b);
 // let a = 10;
 // var b = 100;
@@ -258,6 +260,13 @@
 
 
 //
+// EvalError: Raised when the eval() functions is used in an incorrect manner.
+// RangeError: Raised when a numeric variable exceeds its allowed range.
+// ReferenceError: Raised when an invalid reference is used.
+// SyntaxError: Raised when a syntax error occurs while parsing JavaScript code.
+// TypeError: Raised when the type of a variable is not as expected.
+//
+
 // console.log(b);
 // console.log(a);
 // let a = 10;
@@ -327,6 +336,8 @@
 // }
 
 //
+// // var a = 100;
+// // let a = 100;
 // let b = 100;
 // {
 //     var a = 10;
@@ -336,6 +347,7 @@
 //     console.log(b);
 //     console.log(c);
 // }
+// console.log(a)
 // console.log(b)
 
 //
@@ -779,13 +791,63 @@
 
 //Lec16 Callback Functions in Js ft Event Listeners
 //(1)Whay is callback functions in JavaScript
-// A callback is a function passed as an argument to another function This technique allows a function to call another function A callback function can run after another function has finished
-// A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+// #A callback is a function passed as an argument to another function This technique allows a function to call another function
+//  A callback function can run after another function has finished
+// #A callback function is a function passed into another function as an argument,
+//  which is then invoked inside the outer function to complete some kind of routine or action.
+// #A callback is a function passed as an argument to another function, allowing the latter to execute the callback function at a specific time, 
+// often after completing an operation.
+//  Callbacks are a foundational concept in JavaScript, enabling asynchronous programming and modular code design.
+
+//https://www.geeksforgeeks.org/javascript-callbacks/
+//
+// function greet(name, callback) {
+//     console.log(`Hello, ${name}!`);
+//     callback();
+// }
+
+// function sayGoodbye() {
+//     console.log("Goodbye!");
+// }
+// greet("GFG", sayGoodbye);
+
+//
+// function mainFunction(callback) {
+//     console.log("Performing operation...");
+//     // Use setTimeout to simulate an asynchronous operation
+//     setTimeout(function() {
+//       callback("Operation complete");
+//     }, 1000);
+//   }
+  
+//   // Define the callback function
+//   function callbackFunction(result) {
+//     console.log("Result: " + result);
+//   }
+  
+//   // Call the main function with the callback function
+//   mainFunction(callbackFunction);
+
+//
+// let numbers = [1, 2, 3, 4, 5];
+// function mainFunction(callback) {
+//   console.log("Performing operation...");
+//   numbers.forEach(callback);
+// }
+// function callbackFunction(number) {
+//   console.log("Result: " + number);
+// }
+
+// mainFunction(callbackFunction);
+
+
+//
 // setTimeout(function(){
 //     console.log("Timer");
 // }, 5000);
 
 // function x(y){
+//     console.log(y);
 //     console.log("x");
 // }
 // x(function y(){
@@ -817,7 +879,12 @@
 
 
 // Lec17 Asynchronous JavaScript and Event Loop 
+//JavaScript has a runtime model based on an event loop, which is responsible for executing the code, collecting and processing events,
+// and executing queued sub-tasks. This model is quite different from models in other languages like C and Java.
 
+//////////////
+// The event loop concept is very simple. There’s an endless loop, 
+// where the JavaScript engine waits for tasks, executes them and then sleeps, waiting for more tasks.
 
 // Lec18 JS Engine Exposed Google V8 Architecture
 //You need Javascript runtime environment to run js code
