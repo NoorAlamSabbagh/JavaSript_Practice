@@ -4,7 +4,7 @@ const calculateMean = (arr) =>{
 if(arr.length === 0){
     return 0;
 }
-let sum = arr.reduce((accum, currElem) => accum+ currElem, 0);
+let sum = arr.reduce((accum, currElem) => accum + currElem, 0);
 // console.log(sum)
 return sum/arr.length;
 }
