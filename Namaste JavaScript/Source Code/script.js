@@ -62,7 +62,9 @@
 // console.log(x);
 
 //
-//hoisting :Hoisting is the default behavior of moving all the declarations at the top of the scope before code execution.
+//hoisting: Hoisting is the default behavior of moving all the declarations at the top of the scope before code execution.
+// // Hoisting:Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope 
+// // hoisting allows you to use functions and variables before they're declared
 // getName()
 // console.log(x);
 // var x = 7;
@@ -85,7 +87,7 @@
 // console.log(x);
 // console.log(getName);
 // var x = 7;
-// // var getName = function () {//TypeError: getName is not a function
+// // var getName = function () {//TypeError: getName is not a function because getname act as a new variiable 
 // //     console.log("Namaste Javascript");
 // // }
 // // function getName(){
@@ -103,6 +105,15 @@
 // getName();
 // console.log(x);
 // console.log(getName);
+
+//
+// getName();
+// console.log(x);
+// console.log(getName);
+// var x = 7;
+// function getName(){
+//     console.log("Namaste JavaScript");
+// }
 
 //
 // getName();
@@ -133,6 +144,7 @@
 //     var x = 100;
 //     console.log(x);
 // }
+
 //
 // var x = 1;
 // a();
@@ -149,9 +161,16 @@
 // }
 
 //<====================Call Stack =======================>
+// https://www.javatpoint.com/javascript-call-stack
+//Callstack knowns as various names like execution context stack, program stack, control stack, runtime stack, machine stack.
+//In order to manage the execution contexts, the JavaScript engine uses a call stack
 // A call stack is a way for the JavaScript engine to keep track of its place in code that calls multiple functions. 
 //It has information on what function is being run and what functions are invoked from within that function.
-//Lecture 5: this is Shortest JS Program
+
+
+//<=================Lecture 5: this is Shortest JS Program ============>
+// The this keyword refers to different objects depending on how it is used:
+//Whenever js code is run  a global object is created, a global execution context is created along execution contest this is created.
 // var a = 10;
 // function b() {
 //     var x = 10;
@@ -159,7 +178,6 @@
 // console.log(window.a)
 // console.log(a)
 // console.log(this.a)
-
 
 //Lecture 6: Undefined vs defined
 // "undefined" indicates that a variable has been declared but not given a value,
@@ -178,6 +196,7 @@
 
 
 //
+//var a;
 // if (a === undefined) {
 //     console.log("a is undefined")
 // }
@@ -194,17 +213,18 @@
 // a();
 
 //
+//lexical environment is created when the execution environment is
+// created(lexcial Environment = Local memory + lexcial environment of parents)
+//
 // function a() {
+//     var b = 10;
 //     c();
 //     function c() {
 //         console.log(b);
 //     }
 // }
-// var b = 10;
 // a();
 
-//lexical environment is created when the execution environment is
-// created(lexcial Environment = Local memory + lexcial environment of parents)
 //
 // function a() {
 //     var b = 10;
@@ -262,9 +282,9 @@
 //
 // EvalError: Raised when the eval() functions is used in an incorrect manner.
 // RangeError: Raised when a numeric variable exceeds its allowed range.
-// ReferenceError: Raised when an invalid reference is used.
-// SyntaxError: Raised when a syntax error occurs while parsing JavaScript code.
-// TypeError: Raised when the type of a variable is not as expected.
+// ReferenceError:If you are trying to access a variable before declaring it. Raised when an invalid reference is used.
+// SyntaxError: If you are messed with javascript syntax. Raised when a syntax error occurs while parsing JavaScript code.
+// TypeError: If you are trying to reassign a value to a constant variable. Raised when the type of a variable is not as expected.
 //
 
 // console.log(b);
@@ -307,6 +327,8 @@
 
 
 //Lecture 10: BLOCK SCOPE & Shadowing In JS-------------------------------------
+//{ } : A block of code is a set of statements that are grouped together.
+//with all the variable and function inside this block
 //SCOPE:Scope determines the accessibility (visibility) of variables. JavaScript has 3 types of scope: Block scope; Function scope; Global scope ..
 //BLOCK SCOPE : This scope restricts the variable that is declared inside a specific block, from access by the outside of the block
 // {
@@ -321,8 +343,6 @@
 // console.log(b);
 // console.log(c);
 
-
-
 //
 //Shadowing:shadowing occurs when a variable declared in a certain scope (e.g. a local variable) has the same name as a variable in an outer scope (e.g. a global variable)
 // var a = 100;
@@ -334,11 +354,66 @@
 //     console.log(b);
 //     console.log(c);
 // }
+// console.log(a)
+
+// //
+// let b = 100;
+// {
+//     var a = 10;
+//     let b = 20;
+//     const c = 30;
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// console.log(b)
+
+//
+// const c = 100;
+// {
+//     var a = 10;
+//     let b = 20;
+//     const c = 30;
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// console.log(c)
+
 
 //
 // // var a = 100;
 // // let a = 100;
 // let b = 100;
+// {
+//     var a = 10;
+//     let b = 20;
+//     const c = 30;
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// console.log(a)
+// console.log(b)
+
+//
+// // let a = 100;
+// let b = 100;
+// {
+//     var a = 10;
+//     let b = 20;
+//     const c = 30;
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// console.log(a)
+// console.log(b)
+
+
+//
+// // const a = 100;
+// const b = 100;
 // {
 //     var a = 10;
 //     let b = 20;
@@ -359,7 +434,7 @@
 //     console.log(b);
 //     console.log(c);
 // }
-// console.log(a)
+// console.log(a);
 
 //its valid shadowing
 // let a = 20;
@@ -383,8 +458,13 @@
 // }
 
 //
-//its not a valid shadowing
+// // its not a valid shadowing
 // let a = 20;
+// {
+//     var a = 20;
+// }
+// // its not a valid shadowing
+// const a = 20;
 // {
 //     var a = 20;
 // }
@@ -404,7 +484,8 @@
 //
 
 //
-//What is Lexical Scope in JavaScript? Lexical scope is the definition area of an expression. In other words, an item's lexical scope is the place in which the item got created
+//What is Lexical Scope in JavaScript? Lexical scope is the definition area of an expression.
+//  In other words, an item's lexical scope is the place in which the item got created
 // const a = 20;
 // {
 //     const a = 100;
@@ -417,9 +498,19 @@
 
 //Lecture 11: QnA-------------------------------------
 
-//Lecture 12: Closures in JS----------------------------
-//A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function.
+//Lecture 10: Closures in JS----------------------------
+//A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). 
+// In other words, a closure gives you access to an outer function's scope from an inner function.
 //Closures: function along with its lexcical scope bundle together form a closures
+
+//Uses of Closures
+//1. Module Design Pattern
+//2. Currying       
+//3. Function Factory
+//4. Memoization
+//5. setTimeouts
+//6. Iterators
+//7. Maintaining State in Asynchronous Programming
 
 // function x() {
 //     var a = 7;
@@ -497,6 +588,8 @@
 
 
 //Prototype
+// Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+//  In this article, we explain what a prototype is, how prototype chains work, and how a prototype for an object can be set.
 // let arr = ["Noor", "Alam", "Nehal"];
 // let object = {
 //     name: "Noor Alam",
@@ -592,7 +685,8 @@
 //     for(var i=1; i<=5; i++){
 //         setTimeout(function(){
 //             console.log(i);
-//         }, i*1000);
+//         }, 1000);
+//         // }, i*1000);
 //     }
 //     console.log("Namaste JavaScript");
 // }
@@ -1058,4 +1152,3 @@
 
 // const output = users.filter((x) => x.age<30).map((x) => x.firstname);
 // console.log(output)
-
