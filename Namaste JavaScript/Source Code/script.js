@@ -681,6 +681,18 @@
 //A closure is like function along with its lexical environment right so even when function is taken out from its original scope right 
 // if it is executed in some other scope
 //When the settimeout takes this function and stores it somewhere and attaches a timer so that function remembers the reference to i
+//
+// function x(){
+//     for(var i=1; i<=5; i++){
+//         setTimeout(function(){
+//             console.log(i);
+//         }, 1000);
+//     }
+//     console.log("Namaste JavaScript");
+// }
+// x();
+
+//
 // function x(){
 //     for(var i=1; i<=5; i++){
 //         setTimeout(function(){
@@ -721,6 +733,30 @@
 
 
 //Lec14 Crazy JS Interview ft Closures
+//
+// function outer(){
+//     var i = 10;
+//     function inner(){
+//         console.log(i)
+//     }
+//     inner();
+//     return inner;
+// }
+// outer();
+
+// //
+// function outer(){
+//     var i = 10;
+//     return function inner(){
+//         console.log(i)
+//     }
+//     // inner();
+//     // return inner;
+// }
+// outer()();
+
+
+//
 // function outer(){
 //     var i = 10;
 //     function inner(){
@@ -790,6 +826,41 @@
 // var close = outest()("helloWorld");
 // close();
 
+//
+// function outest(){
+// var c = 20;
+//     function outer(b){
+//         function inner(){
+//             console.log(a, b, c)
+//         }
+//         let a = 10;
+//         return inner;
+//     }
+//     return outer;
+// }
+// let a = 100;
+// // outer();
+// // outer()();
+// var close = outest()("helloWorld");
+// close();
+
+//
+// function outest(){
+//     var c = 20;
+//         function outer(b){
+//             function inner(){
+//                 console.log(a, b, c)
+//             }
+//             // let a = 10;
+//             return inner;
+//         }
+//         return outer;
+//     }
+//     let a = 100;
+//     // outer();
+//     // outer()();
+//     var close = outest()("helloWorld");
+//     close();
 
 //Closure for function currying, encapsulation, data hiding
 // var counter = 0;
