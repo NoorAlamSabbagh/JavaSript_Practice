@@ -733,6 +733,25 @@
 
 
 //Lec14 Crazy JS Interview ft Closures
+// advatages of closure in js:
+// 1. Data Encapsulation
+// 2. Currying 
+// 3. Function Factory
+// 4. Memoization
+// 5. Maintaining State in Asynchronous Programming
+// 6. Module Design Pattern
+// 7. setTimeouts
+// 8. Iterators
+
+//disadvantages of closure in js:
+// 1. Memory Leak
+// 2. Encapsulation
+// 3. Performance Issue
+// 4. Security Issue
+// 5. Garbage Collection
+// 6. Global Variables
+// 7. Memory Consumption
+
 //
 // function outer(){
 //     var i = 10;
@@ -868,7 +887,7 @@
 //     counter++;
 // }
 
-//
+//encapsulation exapmle
 // function counter(){
 //     var count = 0;
 //     return function incrementCounter(){
@@ -879,7 +898,25 @@
 // var counter1 = counter()// It cannnot acces directly because of closure encapsulation;
 // counter1();
 
+
 //
+// function counter(){
+//     var count = 0;
+//     return function incrementCounter(){
+//         count++;
+//         console.log(count);
+//     }
+// }
+// var counter1 = counter()// It cannnot acces directly because of closure encapsulation;
+// counter1();
+// counter1();
+
+// var counter2 = counter()// It cannnot acces directly because of closure encapsulation;
+// counter2();
+// counter2();counter2();counter2();counter2();
+
+//
+//use constructor function for optimization
 // function Counter(){
 //     var count = 0;
 //     this.incrementCounter = function (){
@@ -898,14 +935,70 @@
 // counter1.incrementCounter();
 // counter1.decrementCounter();
 
+//
+//garbage collector code
+// function a(){
+//     var x = 0;
+//     return function b(){
+//         console.log(x);
+//     }
+// }
+// var y = a();    
+// y();
 
+
+//
+// function a(){
+//     var x = 0; z= 10;
+//     return function b(){
+//         console.log(x);
+//     }
+// }
+// var y = a();    
+// y();
+
+//
+// function createObject() {
+//     let obj = { name: "John Doe" };  // Object is created in memory
+//     console.log(obj.name);  // Output: John Doe
+// }
+
+// createObject(); // Function runs, object exists only inside function
+
+// // After this function executes, `obj` is no longer accessible
+// // The garbage collector will reclaim the memory used by `obj`
+
+//
+// let cache = {};
+
+// function createUser() {
+//     cache.user = { name: "Alice" }; // Stored in global object
+// }
+
+// createUser();
+// console.log(cache.user); // { name: "Alice" }
+
+// // If we don’t remove the reference, the object stays in memory
+// delete cache.user; // Now, the object is eligible for garbage collection
+
+//
 ////////////////////////////
 //Lec15 First class Functions
+// In JavaScript, first-class functions mean that functions are treated as first-class citizens. This means functions can be:
+// Assigned to variables.
+// Passed as arguments to other functions.
+// Returned from other functions
+// Stored in data structures (like arrays or objects).
+// JavaScript treats functions just like any other value (e.g., numbers, strings, or objects), making it a powerful feature of the language.
+
+//
 //A function without name is known as anonnymouns function.
 //
-// Function declarations are hoisted, meaning they can be called before they are declared. Function expressions,
-//  on the other hand, are not hoisted, so they cannot be invoked before they are defined.
+// Function declarations are hoisted, meaning they can be called before they are declared. 
+// Function expressions, on the other hand, are not hoisted, so they cannot be invoked before they are defined.
 //  Additionally, function expressions can be anonymous or named, while function declarations must always be named.
+
+//
 //Functions Statement aka function decleration
 // a();
 // function a(){
@@ -920,7 +1013,23 @@
 // }
 // b();
 
+//
+//Difference between function decleration and function expression
+//function expression is not hoisted but function decleration is hoisted
+// a();
+// b();//TypeError: b is not a function
 
+// //function statement aka function decleration
+// function a(){
+//     console.log("A called")
+// }
+
+// //function expression
+// var b = function(){     
+//     console.log("B called")     
+// }
+
+//
 //Functuion Decleration
 
 //Anonnymous Function
@@ -928,12 +1037,12 @@
 
 // }
 
-//Named Function Expressions
+// //Named Function Expressions
 // var b = function xyz(){
 //     console.log("A called")
 // }
 // b();
-// xyz();
+// xyz();//ReferenceError: xyz is not defined
 
 //
 // var b = function xyz(){
@@ -943,6 +1052,8 @@
 // // xyz();
 
 //Difference between Parameters & Arguments?
+//Parameters are the names listed in the function definition. 
+//Arguments are the real values passed to the function.
 // var b = function (param1, param2){
 //     console.log(param1, param2)
 // }
