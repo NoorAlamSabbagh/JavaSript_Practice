@@ -1317,7 +1317,97 @@
 //console.log(calculate(radius, area));
 
 
+//<===============Lec17 Trust Issue with setTimeout==================>
+//console.log("Start");//(1)console: Start
+// setTimeout(function cb() {
+//     console.log("callback");
+// }, 5000);
+// console.log("End");//(2)console: End
 
+// //million
+// let startDate = new Date().getTime()
+// let endDate = startDate
+// while(endDate<startDate+10000) {    
+// endDate = new Date().getTime()
+// }
+// console.log("While loop has stopped")//(3)console: While loop has stopped
+
+//
+//<===============Lec18 Higher Order Function==================>
+//A function which takes another function as an argument or return a function from it is known as Higher order function
+//Higher order function is a function that takes a function as an argument, or returns a function.
+// function x() {
+//     console.log("x")
+// }
+
+// function y(x) {
+//     x();
+// }
+
+//
+// const radius = [3, 1, 2, 4];
+// const calculateArea = function (radius) {
+//     const output = [];
+//     for (let i = 0; i < radius.length; i++) {
+//         output.push(Math.PI * radius[i] * radius[i]);
+//     }
+//     return output;
+// }
+// console.log(calculateArea(radius));
+
+// const calculateCircumference = function (radius) {  
+//     const output = [];
+//     for (let i = 0; i < radius.length; i++) {
+//         output.push(2 * Math.PI * radius[i]);
+//     }
+//     return output;
+// }
+// console.log(calculateCircumference(radius));
+
+// const calculateDiameter = function(radius){
+//     const output = [];
+//     for (let i = 0; i < radius.length; i++){
+//         output.push(2 * radius[i]);
+//     }
+//     return output;
+// }
+// console.log(calculateDiameter(radius));
+
+//
+//logic are same in above code so we use DRY concept
+// const radius = [3, 1, 2, 4];
+
+// const area = function(radius){  
+//     return Math.PI * radius * radius;
+// }
+
+// const circumference = function(radius){
+//     return 2 * Math.PI * radius;
+// }
+
+// const diameter = function(radius){
+//     return 2 * radius;
+// }
+
+// const calculate = function(radius, logic){
+// // Array.pconst.calculate = function(radius, logic){
+//     const output = [];
+//     for(let i = 0; i<radius.length; i++){
+//         output.push(logic(radius[i]));
+//         // output.push(logic(this[i]));
+//     }
+//     return output;
+// }
+
+// console.log(radius.map(area));
+// // console.log(radius.calculate(radius, area));//Array.pconst.calculate = function(radius, logic){
+// // console.log(radius.calculate(area));
+// console.log(calculate(radius, area));
+// console.log(calculate(radius, circumference));
+// console.log(calculate(radius, diameter));
+
+
+//<===============Lec19 Map, filter and reduce==================>
 //Lec19 Map, filter and reduce
 // const arr = [5, 1, 3, 2, 6];
 // //Double-[10, 2, 6, 4, 12]
