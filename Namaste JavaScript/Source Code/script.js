@@ -1066,7 +1066,13 @@
 
 
 //Lec16 Callback Functions in Js ft Event Listeners
-//(1)Whay is callback functions in JavaScript
+//(1)What is callback functions in JavaScript
+// function x(){
+//     console.log("x")
+// }
+// x(function y(){
+//     console.log("y")    
+// })
 // #A callback is a function passed as an argument to another function This technique allows a function to call another function
 //  A callback function can run after another function has finished
 // #A callback function is a function passed into another function as an argument,
@@ -1095,12 +1101,12 @@
 //       callback("Operation complete");
 //     }, 1000);
 //   }
-  
+
 //   // Define the callback function
 //   function callbackFunction(result) {
 //     console.log("Result: " + result);
 //   }
-  
+
 //   // Call the main function with the callback function
 //   mainFunction(callbackFunction);
 
@@ -1116,21 +1122,38 @@
 
 // mainFunction(callbackFunction);
 
+//
+// document.getElementById("Click Me").addEventListener("click", function xyz() {
+//     console.log("Button clicked");
+// });
+// document.getElementById("myButton").addEventListener("click", function xyz() {
+//     console.log("Button clicked");
+// });
+
+//
+// function attachEventListener() {
+//     let count = 0;
+//     document.getElementById("myButton").addEventListener("click", function xyz() {
+//         console.log("Button clicked", ++count);
+//     });
+// }
+// attachEventListener();
+
 
 //
 // setTimeout(function(){
-//     console.log("Timer");
+//     console.log("Timer");//third console: Timer
 // }, 5000);
 
 // function x(y){
-//     console.log(y);
-//     console.log("x");
+//     console.log(y);//first console: [Function: y]
+//     console.log("x");//second console: x
 // }
 // x(function y(){
 //     console.log("y");
 // });
 
-//
+
 // setTimeout(function(){
 //     console.log("Timer");
 // }, 5000);
@@ -1152,23 +1175,79 @@
 //(5)Closure Demo with Event Listeners
 
 //(6)Garbage Collection and removeEvent Listeners
+// function attachEventListener() {
+//     let count = 0;
+//     document.getElementById("myButton").addEventListener("click", function xyz() {
+//         console.log("Button clicked", ++count);
+//     });
+// }
+// attachEventListener();
 
 
-// Lec17 Asynchronous JavaScript and Event Loop 
+// <====================== Lec17 Asynchronous JavaScript and Event Loop ===============>
+//Callstack present inside the JS engine
 //JavaScript has a runtime model based on an event loop, which is responsible for executing the code, collecting and processing events,
 // and executing queued sub-tasks. This model is quite different from models in other languages like C and Java.
 
+//
+// function a(){
+//     console.log("a");
+// }
+// a();
+// console.log("Namaste JavaScript");
+
+//
+// console.log("Start");
+// setTimeout(function cb() {
+//     console.log("callback");
+// }, 5000);
+// console.log("End");
+
+//
+// console.log("Start");
+// document.getElementById("myButton").addEventListener("click", function cb() {
+//     console.log("Button Clicked");
+// }); 
+// console.log("End");
+
+//Why do we need callback queue
+//when we click multiple/ continously on button then it will be added to the callback queue and it will be executed one by one
+
+//
+// console.log("Start");//(1)console: Start
+// setTimeout(function cbT() {
+//     console.log("CB SetTimeout");//(4)console: CB SetTimeout
+// }, 5000);
+// fetch("https://api.github.com/users")//WEB API
+// .then(function cbF(){   
+//     console.log("CB Fetch");//(3)console: CB Fetch
+// });
+// console.log("End");//(2)console: End
+
+//Microtask Queue   
+//Microtasks are usually scheduled for things that should happen straight after the currently executing script,
+//such as reacting to a batch of actions, 
+// or to make something async without taking the penalty of a whole new task.
+//Microtasks include mutation observer, promise, queueMicrotask, process.nextTick, MutationObserver, and the microtask queue.
+
+
+//Browser is not a part of JS engine and inside JS engine callstack present and inside callstack GEC created
+// and inside the browser we have web APIs like DOM, AJAX, Timeout, localstorage, console, location etc
+//We have callback queue and event loop
+//The event loop is a mechanism that makes sure the call stack is empty before processing the callback queue.
+
 //////////////
-// The event loop concept is very simple. There’s an endless loop, 
+// The event loop concept is very simple. There’s an endless loop,
 // where the JavaScript engine waits for tasks, executes them and then sleeps, waiting for more tasks.
 
-// Lec18 JS Engine Exposed Google V8 Architecture
+// <========================Lec18 JS Engine Exposed Google V8 Architecture =================>
 //You need Javascript runtime environment to run js code
-
+//javascript runtime environment is a program that includes the javascript engine and the web APIs
+//The V8 engine is the open-source JavaScript engine that runs in Google Chrome and other Chromium-based web browsers,
 // Lec18 Higher Order Functions
 //A function which take a functions as an argument and return a function to it
 // JavaScript Higher-Order Functions are functions that can accept other functions as arguments,
-// return functions, or both. They enable abstraction and flexibility in code, 
+// return functions, or both. They enable abstraction and flexibility in code,
 // allowing you to create reusable and modular functions for complex operations, making them essential in functional programming.
 
 // function x(){
@@ -1280,7 +1359,7 @@
 // }
 // console.log(findSum(arr2));
 
-// //By reducer 
+// //By reducer
 // const output2 = arr2.reduce(function(acc, curr){
 //     acc = acc + curr;
 //     return acc;
@@ -1299,10 +1378,10 @@
 // }
 // console.log(findMax(arr2));
 
-// //By reducer 
+// //By reducer
 // const output3 = arr2.reduce(function(max, curr){
 //      if(curr>max){
-//         max = curr 
+//         max = curr
 //      }
 //     return max;
 // }, 0)
