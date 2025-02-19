@@ -203,26 +203,42 @@
 // missingNumber(arr)
 
 //
-function numberSum(n){
-    let sum = 0;
-while(n>0){
-    let r = n%10;
-    // console.log('r', r);
-    sum += r;
-    n = Math.floor(n/10);
-}
-console.log('sum', sum);
-}
-numberSum(912356)
-
-
-// function numberSum(n) {
-//     while (n > 0) {
-//         let r = n % 10; // Extract the last digit
-//         console.log(r);  // Print the digit
-//         n = Math.floor(n / 10); // Remove the last digit
-//     }
+// function numberSum(n){
+//     let sum = 0;
+// while(n>0){
+//     let r = n%10;
+//     // console.log('r', r);
+//     sum += r;
+//     n = Math.floor(n/10);
 // }
+// console.log('sum', sum);
+// }
+// numberSum(912356)
 
-// // Call the function with a number
-// numberSum(912356);
+//
+function count(n) {
+    let count = 0;  
+    while (n > 0) {  
+        let sum = 0;
+        let temp = n;  // Store a copy of `n` for digit sum calculation
+        while (temp > 0) {  
+            let r = temp % 10;  // Extract last digit
+            sum += r;  
+            temp = Math.floor(temp / 10);  // Remove last digit
+        }
+
+        console.log('Sum of digits:', sum);
+        n = n - sum;  // Reduce `n` by its sum of digits
+        console.log('Updated n:', n);
+        
+        count++;  // Increment the operation count
+    }
+
+    console.log('Total count:', count);
+    return count;  
+}
+
+// Call the function
+count(25);
+
+
