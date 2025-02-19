@@ -22,21 +22,23 @@
 // })
 
 //Above code create problem called inversion of control
+//Inversion of control is a design principle in which the control of object creation and program flow is inverted,
+// meaning that the framework or runtime controls the flow of the program, rather than the developer.
 
-//<=============================Lecture 3: Promises ===============================>
+//<=============================Lecture 2: Promises ===============================>
 // (1) Promises are a way to handle asynchronous operations in JavaScript. Promise object as a placeholer for the certain 
 // period of time, untill we recieve a value from a asynchronous operation, a container for the future value.
 
 // (2) A Promise is an object representing the eventual completion or failure of an asynchronous operation.
 
+//
 // const cart = ["shoes", "pants", "Kurta"];
-
 // createOrder(cart, function(orderId){
 //     proceedToPayment(orderId)
 // })
 // //above code inwhich we are using callback function, which is not good practice
-
 // const promise = createOrder(cart);
+
 // // at starting it will give undefined data
 // // {data: undefined}
 // // after some second it will give some data
@@ -51,20 +53,26 @@
 
 
 //
-// const GITHUB_API = "https://api.github.com/users/akshaymarch7";
+// // const GITHUB_API = "https://api.github.com/users/akshaymarch7";
 // const GITHUB_API = "https://dummyjson.com/users";
 // const user = fetch(GITHUB_API)
 // console.log(user)
 
+//
+// const GITHUB_API = "https://api.github.com/users/akshaymarch7";
+// // const GITHUB_API = "https://dummyjson.com/users";
+// const user = fetch(GITHUB_API)
+// console.log(user)
 // user.then(function(response){
 //     console.log(response)
 // })
 
-
+//Promise is like a container for the future value
 //Promise has also a problem, that is we can't handle multiple promises at a time, so we use async and await 
+//to handle multiple promises at a time
 
 //
-// //Promising chaining
+// //Promising chaining its hard to read and understand
 // const cart = ["shoes", "pants", "Kurta"];
 
 // createOrder(cart, function (orderId) {
@@ -74,42 +82,43 @@
 //         })
 //     })
 // })
-// // const promise = createOrder(cart);
-// // promise.then(function(orderId){
-// //         proceedToPayment(orderId)
-// //     })
+// const promise = createOrder(cart);
+// promise.then(function(orderId){
+//         proceedToPayment(orderId)
+//     })
 
-// //above code we can write as below
-// // createOrder(cart)
-// // .then(function (orderId) {
-// //     proceedToPayment(orderId)
-// // })
-// // .then(function (paymentInfp) {
-// //     showOrderSummary(paymentInfp)
-// // })
-// // .then(function (paymentInfp) {
-// //     updateWalletDataBalance(paymentInfp)
-// // })
+//
+//above code we can write as below
+// createOrder(cart)
+// .then(function (orderId) {
+//     proceedToPayment(orderId)
+// })
+// .then(function (paymentInfp) {
+//     showOrderSummary(paymentInfp)
+// })
+// .then(function (paymentInfp) {
+//     updateWalletDataBalance(paymentInfp)
+// })
 
-// //
 // createOrder(cart)
 // .then(orderId => proceedToPayment(orderId))
 // .then(paymentInfp => showOrderSummary(paymentInfp))
-// .then(() => updateWalletDataBalance())
+// .then((paymentInfp) => updateWalletDataBalance(paymentInfp))
 
 
 //<=============================Lecture 3: Promise Chain ===============================>
 //Topics are
 // (1) Creating a Promise
 // (2) Error Handling in Promises
-// (3) Promis Chaining
+// (3) Promise Chaining
 
 
 //
 // const cart = ["shoes", "pants", "Kurta"];
+// // const cart = [];
 
 // const promise = createOrder(cart)//orderId
-// console.log(promise)
+// console.log("promise0", promise)
 // promise.then(function (orderID) {
 //     console.log("Order Created: ", orderID)
 //     // proceedToPayment(orderId)
@@ -117,13 +126,15 @@
 
 // ///
 // function createOrder(cart) {
+//     // console.log("Creating Order", cart)
 //     const pr = new Promise(function (resolve, reject) {
 //         //create order
 //         //validateCart
 //         //orderID
 //         if (!validateCart(cart)) {
 //             const err = new Error("Cart is not valid")
-//             reject("err")
+//             reject("err", err)
+//             // console.log("err", err)
 //         }
 //         //logic to create order
 //         const orderId = "12345";
@@ -137,8 +148,13 @@
 // }
 
 // function validateCart(cart) {
-//     return true;
+//     if (cart.length > 0) {
+//         return true;
+//     } else {
+//         return false;
+//     }
 // }
+
 
 
 ///
@@ -202,7 +218,6 @@
 //     console.log("No matter what happen, I will definitely run")
 // })
 
-// ///
 // function createOrder(cart) {
 //     const pr = new Promise(function (resolve, reject) {
 //         //create order
@@ -233,6 +248,12 @@
 //     // return true;
 //     return false;
 // }
+
+//
+//Practice for  promise chain
+// const cart = ['shoes', 'pants', 'kurta'];
+// createOrder, proceedPayment, showOrderSummary, updateWallet
+
 
 //
 //<=============================Lecture 5: Promise APIs + Interview Questions ===============================>
@@ -796,18 +817,18 @@
 // obj2.x();
 
 //
-const obj2 = {
-    a: 20,
-    x: function(){
-        //enclosing lexical context
-        const y = () => {
-            console.log(this)
-        }
-        y()
-    }
-}
-obj2.x();
-// (9)this inside DOM 
+// const obj2 = {
+//     a: 20,
+//     x: function () {
+//         //enclosing lexical context
+//         const y = () => {
+//             console.log(this)
+//         }
+//         y()
+//     }
+// }
+// obj2.x();
+// (9)this inside DOM
 
 //DIfferent between function and method
 //refrence to the html element

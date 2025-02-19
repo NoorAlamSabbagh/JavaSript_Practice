@@ -1408,8 +1408,42 @@
 
 
 //<===============Lec19 Map, filter and reduce==================>
+//  map(), filter(), and reduce() are higher-order functions in JavaScript used to manipulate arrays in different ways.
+//  Here’s how they differ
+// 1. map()
+// Purpose: Transforms each element in an array and returns a new array with the modified elements.
+// Returns: A new array of the same length as the original.
+// Use Case: When you want to modify each element in an array.
+// const numbers = [1, 2, 3, 4];
+// const doubled = numbers.map(num => num * 2);
+// console.log(doubled); // [2, 4, 6, 8]
+
+//
+// 2. filter()
+// Purpose: Filters elements based on a condition and returns a new array with only the elements that satisfy the condition.
+// Returns: A new array with fewer or the same number of elements.
+// Use Case: When you want to remove certain elements from an array.
+// const numbers = [1, 2, 3, 4, 5, 6];
+// const evenNumbers = numbers.filter(num => num % 2 === 0);
+// console.log(evenNumbers); // [2, 4, 6]
+
+// 3. reduce()
+// Purpose: Reduces the array to a single value by applying a function that accumulates results.
+// Returns: A single value (number, string, object, etc.).
+// Use Case: When you need to compute a cumulative value (like sum, average, or product).
+// const numbers = [1, 2, 3, 4];
+// const sum = numbers.reduce((acc, num) => acc + num, 0);
+// console.log(sum); // 10
+
+//
+// Function	         Purpose	                                                        Return Value	                            Use Case
+// map()	         Transforms each element	                                        New array (same length)	                    Modifying elements
+// filter()	         Selects elements based on condition	                            New array (fewer or same elements)	        Removing elements
+// reduce()	         Aggregates values	Single value (number, object, etc.)	            Summing, averaging,                         accumulating data
+
+//
 //Lec19 Map, filter and reduce
-const arr = [5, 1, 3, 2, 6];
+// const arr = [5, 1, 3, 2, 6];
 //Double-[10, 2, 6, 4, 12]
 //Triple-[15, 3, 9, 6, 18]
 //Binary - ["101", "1", "11", "10", "110"]
@@ -1434,6 +1468,9 @@ const arr = [5, 1, 3, 2, 6];
 //Filter Method
 // const arr = [5, 1, 3, 2, 6];
 
+// const output = arr.filter((x) => x <3);
+// console.log(output);
+//
 // function isOdd(x){
 //     // return x%2;//for odd
 //     return x%2 === 0;//for even
@@ -1441,7 +1478,13 @@ const arr = [5, 1, 3, 2, 6];
 // const output = arr.filter(isOdd);
 // console.log(output);
 
-
+// difference between map and filter and reduce
+//Map: Map is a method that creates a new array by performing a function on each array element.
+//Filter: Filter is a method that creates a new array with elements that pass the test in
+// a provided function. 
+//Reduce: Reduce is a method that reduces the array to a single value.
+//Map: Map is a method that creates a new array by performing a function on each array element.
+//
 //Reduce Method
 // const arr2 = [5, 1, 3, 2, 6]
 // //Sum or max
@@ -1454,7 +1497,8 @@ const arr = [5, 1, 3, 2, 6];
 // }
 // console.log(findSum(arr2));
 
-// //By reducer
+//By reducer
+// const arr2 = [5, 1, 3, 2, 6]
 // const output2 = arr2.reduce(function(acc, curr){
 //     acc = acc + curr;
 //     return acc;
@@ -1462,6 +1506,7 @@ const arr = [5, 1, 3, 2, 6];
 // console.log(output2)
 
 // //Find Max value
+// const arr2 = [5, 1, 3, 2, 6]
 // function findMax(arr){
 //     let max = 0;
 //     for(let i = 0;  i < arr.length; i++){
@@ -1474,6 +1519,7 @@ const arr = [5, 1, 3, 2, 6];
 // console.log(findMax(arr2));
 
 // //By reducer
+// const arr2 = [5, 1, 3, 2, 6]
 // const output3 = arr2.reduce(function(max, curr){
 //      if(curr>max){
 //         max = curr
