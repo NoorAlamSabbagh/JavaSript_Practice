@@ -112,6 +112,235 @@
 // (2) Error Handling in Promises
 // (3) Promise Chaining
 
+//
+// const cart = ["shoes", "pants", "Kurta"];
+
+// const promise = createOrder(cart)
+// promise.then(function (orderID) {
+//     console.log('orderId', orderID)
+// })
+
+// function createOrder(cart) {
+//     const pr = new Promise(function (resolve, reject) {
+//         //create Order
+//         //validateCart
+//         //orderID is required
+//         if (!validateCart(cart)) {
+//             const err = new Error("Cart is not valid")
+//             reject(err)
+//         }
+//         //logic to create order
+//         const orderId = "12345";
+//         if (orderId) {
+//             resolve(orderId)
+//         }
+//     });
+//     return pr;
+// }
+
+// function validateCart(cart) {
+//     if (cart.length > 0) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+
+//
+// const cart = ["shoes", "pants", "Kurta"];
+
+// const promise = createOrder(cart)
+// promise.then(function (orderID) {
+//     console.log('orderId', orderID)
+// })
+
+// function createOrder(cart) {
+//     const pr = new Promise(function (resolve, reject) {
+//         //create Order
+//         //validateCart
+//         //orderID is required
+//         if (!validateCart(cart)) {
+//             const err = new Error("Cart is not valid")
+//             reject(err)
+//         }
+//         //logic to create order
+//         const orderId = "12345";
+//         if (orderId) {
+//             setTimeout(function(){
+//                 resolve(orderId)
+//             }, 5000);
+//         }
+//     });
+//     return pr;
+// }
+
+// function validateCart(cart) {
+//     if (cart.length > 0) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+
+//
+// //If Promise is rejected
+// const cart = [];
+// const promise = createOrder(cart)
+// promise.then(function (orderID) {
+//     console.log('orderId', orderID)
+// })
+// .catch(function(err){
+//     console.log("Error: ", err.message)
+// })
+
+// function createOrder(cart) {
+//     const pr = new Promise(function (resolve, reject) {
+//         //create Order
+//         //validateCart
+//         //orderID is required
+//         if (!validateCart(cart)) {
+//             const err = new Error("Cart is not valid")
+//             reject(err)
+//         }
+//         //logic to create order
+//         const orderId = "12345";
+//         if (orderId) {
+//             setTimeout(function(){
+//                 resolve(orderId)
+//             }, 5000);
+//         }
+//     });
+//     return pr;
+// }
+
+// function validateCart(cart) {
+//     if (cart.length > 0) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+//
+//I will check for Promise Chaining
+// const cart = ["shoes", "pants", "Kurta"];
+// const promise = createOrder(cart)
+// promise
+//     .then(function (orderID) {
+//         console.log('orderId', orderID);
+//         return orderID;
+//     })
+//     // .then(function (orderID) {
+//     //      return proceedToPayment('orderId', orderID)//Proceed to payment again will return promise
+//     // })
+//     // .then(function (paymentInfo) {
+//     //     console.log('Payment Info', paymentInfo)
+//     // })
+
+//     .then(function (orderID) {
+//         return proceedToPayment('orderId', orderID).then(function (paymentInfo) {
+//             console.log('Payment Info', paymentInfo)
+//         });
+//     })
+//     .catch(function (err) {
+//         console.log("Error: ", err.message)
+//     })
+
+// function createOrder(cart) {
+//     const pr = new Promise(function (resolve, reject) {
+//         //create Order
+//         //validateCart
+//         //orderID is required
+//         if (!validateCart(cart)) {
+//             const err = new Error("Cart is not valid")
+//             reject(err)
+//         }
+//         //logic to create order
+//         const orderId = "12345";
+//         if (orderId) {
+//             setTimeout(function () {
+//                 resolve(orderId)
+//             }, 5000);
+//         }
+//     });
+//     return pr;
+// }
+
+// function proceedToPayment(orderId) {
+//     return new Promise(function (resolve, reject) {
+//         resolve("Payment Successfull")
+//     })
+// }
+
+// function validateCart(cart) {
+//     if (cart.length > 0) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+//
+//Payment is Successfull
+// const cart = ["shoes", "pants", "Kurta"];
+// const promise = createOrder(cart)
+// promise
+//     .then(function (orderID) {
+//         console.log('orderId', orderID);
+//         return orderID;
+//     })
+//     .catch(function (err) {
+//         console.log("Error: ", err.message)
+//     })
+//     .then(function (orderID) {
+//         return proceedToPayment('orderId', orderID)
+//     })
+//     .then(function (paymentInfo) {
+//         console.log('Payment Info', paymentInfo)
+//     })
+//     .catch(function (err) {
+//         console.log("Error: ", err.message)
+//     })
+//     .then(function (orderID) {
+//         console.log('No matter what happen, I will definitely be called')
+//     })
+
+// function createOrder(cart) {
+//     const pr = new Promise(function (resolve, reject) {
+//         //create Order
+//         //validateCart
+//         //orderID is required
+//         if (!validateCart(cart)) {
+//             const err = new Error("Cart is not valid")
+//             reject(err)
+//         }
+//         //logic to create order
+//         const orderId = "12345";
+//         if (orderId) {
+//             setTimeout(function () {
+//                 resolve(orderId)
+//             }, 5000);
+//         }
+//     });
+//     return pr;
+// }
+
+// function proceedToPayment(orderId) {
+//     return new Promise(function (resolve, reject) {
+//         resolve("Payment Successfull")
+//     })
+// }
+
+// function validateCart(cart) {
+//     if (cart.length > 0) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
 
 //
 // const cart = ["shoes", "pants", "Kurta"];
@@ -214,7 +443,7 @@
 // .catch(function(err){
 //     console.log("Error: ", err.message)
 // })
-// .then(function(){           
+// .then(function(){
 //     console.log("No matter what happen, I will definitely run")
 // })
 
@@ -257,6 +486,8 @@
 
 //
 //<=============================Lecture 5: Promise APIs + Interview Questions ===============================>
+// A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+// Promise.all() is an array of promise
 //  Promise.all([promise1, promise2, promise3])
 //wait for all promises to resolve, then return an array of the resolved values
 
@@ -278,7 +509,7 @@
 
 //
 //(3)Promise.race([promise1, promise2, promise3])
-// The Promise.race() static method takes an iterable of promises as input and returns a single Promise. 
+// The Promise.race() static method takes an iterable of promises as input and returns a single Promise.
 // This returned promise settles with the eventual state of the first promise that settles.
 // promise1 is taking 5 sec and promise2 is taking 10 sec, so it will return the value of promise1 after 5 sec
 
@@ -288,7 +519,7 @@
 // The Promise.any() method takes an iterable of Promise objects and, as soon as one of the promises in the iterable fulfills
 //wait for first sucessful promise
 
-//Difference between promise.all() vs promise.allSettled() vs promise.any() vs promise.race() 
+//Difference between promise.all() vs promise.allSettled() vs promise.any() vs promise.race()
 //(1)promise.all() that an promise of array of values, if all of them sucess then it will return the array of success promise
 //promise.all() that an promise of array of values, if any of the promise is rejected, it will reject the whole promise.all()
 
@@ -300,7 +531,7 @@
 //(3)promise.any() that an promise of array of values, if any of the promise is resolved, it will return the value of that promise
 //it will return the first success promise, if first rejected promise then it will wait for the next promise to resolve and it will keep on waiting
 //for the first success promise, seekly first success promise
-//if all of them are failed then it wil give aggregate error
+//********if all of them are failed then it wil give aggregate error i.e array of all results of fail promise********
 
 
 //
@@ -446,6 +677,7 @@
 // })
 
 //
+//If all the promise fail then it will be aggregate error
 // const promise1 = new Promise((resolve, reject) => {
 //     setTimeout(() => reject('Promise 1 rejected'), 3000);
 // });
@@ -477,18 +709,80 @@
  * Async await vs Promise.then()/.catch()
  **/
 
+//
+// function simplePromise() {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         resolve("Promise resolved successfully!");
+//       }, 2000);
+//     });
+//   }
+
+//   // Usage
+//   simplePromise().then((message) => console.log(message)).catch((error) => console.error(error));
+
 // (1) What is async?
 //The async function alwways return a promise, if the function return a value, the promise will be resolved with the value
+//
+//always return a promise
+// async function getData(){
+//     return "Namaste";
+// }
+
+//
+// async function getData(){
+//     return "Namaste";
+// }
+// const data = getData();
+// // console.log('data1', data)//Output: data1 Promise { 'Namaste' }
+// data.then((res) => console.log(res));//Namaste
+
 //
 // const promise = new Promise((resolve, reject) => {
 //     resolve("Promise Resolved Value")
 // })
 // async function getData(){
-//     return "Hello World";
+//     // return "Hello World";
+//     return promise;
 // }
 // const dataPromise = getData();
 // console.log(dataPromise);
-// dataPromise.then((res) => console.log(res))
+// dataPromise.then((res) => console.log(res));
+
+
+//
+// const promise = new Promise((resolve, reject) => {
+//     resolve('Promise Resolved Value')
+// })
+//  function getData(){
+// promise.then((res => console.log(res)))
+// }
+// getData();
+
+//
+//Await is always inside your async function
+//How do we handle above code using async await function
+// const promise2 = new Promise((resolve, reject) => {
+//     resolve('Promise Resolved Value')
+// });
+
+// async function handlePromise() {
+//     const value = await promise2;
+//     // return value;
+//     console.log('value promise', value)
+// }
+// handlePromise();
+//
+// const promise = new Promise((resolve, reject) => {
+//     resolve("Promise Resolved Value")
+// })
+// async function getData(){
+//     // return "Hello World";
+//     return promise;
+// }
+// const dataPromise = getData();
+// console.log(dataPromise);
+// dataPromise.then((res) => console.log(res));
 
 //
 //Async await are used to handle promises
@@ -499,7 +793,7 @@
 //     })
 // async function handlePromise(){
 //    const value = await promise;
-//    console.log(value); 
+//    console.log(value);
 // }
 // handlePromise();
 
@@ -522,15 +816,54 @@
 //     resolve("Promise Resolved Value")
 // });
 
-// async function handlePromise(){ 
+// async function handlePromise(){
 //     const value = await promise;
-//     console.log(value); 
+//     console.log(value);
 // }
 // handlePromise();
 
 //
 //## Divining Deep into Async Await and see howpromises is handle with async await
 // I have try function without asyn and await
+// const promise = new Promise((resolve, reject) => {
+//     setTimeout(()=> {resolve('Promise Resolved Value'), 10000})
+// })
+
+// function getData(){
+//     promise.then((res) => console.log(res));
+//     console.log('Namaste Javascript');
+// }
+// getData();
+
+//
+// const promise = new Promise((resolve, reject) => {
+//    setTimeout(()=> resolve('Promise Resolved Value'), 10000);
+// })
+
+// async function handlePromise(){
+//     //JS Engine was waiting for Promise to resolved 
+//     const value = await promise;
+//     console.log('Namaste JavaScript');
+//     console.log(value);
+// }
+// handlePromise();
+
+//
+const promise = new Promise((resolve, reject) => {
+   setTimeout(()=> resolve('Promise Resolved Value'), 10000);
+})
+
+async function handlePromise(){
+    console.log('Hello World!!')
+    //JS Engine was waiting for Promise to resolved 
+    const value = await promise;
+    console.log('Namaste JavaScript');
+    console.log(value);
+}
+handlePromise();
+
+
+//
 // const promise = new Promise((resolve, reject) => {
 //     setTimeout(() => resolve("Promise Resolved Value"), 10000)
 // });
@@ -540,7 +873,7 @@
 //     //JS Engine will not wait for the promise to resolve
 //     promise.then((res) => console.log(res));
 //     console.log("Hello World");
-// }   
+// }
 // getData();
 
 //
@@ -550,10 +883,10 @@
 // });
 
 // async function handlePromise(){
-//  //JS Engine is waiting for the promise to resolve if I am using async and await    
+//  //JS Engine is waiting for the promise to resolve if I am using async and await
 //     const value = await promise;
 //     console.log("Namaste Javascript");
-//     console.log(value); 
+//     console.log(value);
 // }
 // handlePromise();
 
@@ -564,10 +897,10 @@
 
 // async function handlePromise(){
 //     console.log("Hello World");
-//  //JS Engine is waiting for the promise to resolve if I am using async and await    
+//  //JS Engine is waiting for the promise to resolve if I am using async and await
 //     const value = await promise;
 //     console.log("Namaste Javascript");
-//     console.log(value); 
+//     console.log(value);
 // }
 // handlePromise();
 
@@ -578,14 +911,14 @@
 // });
 
 // async function handlePromise(){
-//     console.log("Hello World"); 
+//     console.log("Hello World");
 //     //After 10 seconds both the promise will resolve of value1 and value2
 //     const value1 = await promise;
 //     console.log("Namaste Javascript");
-//     console.log(value1); 
+//     console.log(value1);
 //     const value2 = await promise;
 //     console.log("Namaste Javascript");
-//     console.log(value2); 
+//     console.log(value2);
 // }
 // handlePromise();
 
@@ -600,13 +933,13 @@
 // });
 
 // async function handlePromise(){
-//     console.log("Hello World"); 
+//     console.log("Hello World");
 //     const value1 = await promise1;
 //     console.log("Namaste Javascript");
-//     console.log(value1); 
+//     console.log(value1);
 //     const value2 = await promise2;
 //     console.log("Namaste Javascript");
-//     console.log(value2); 
+//     console.log(value2);
 // }
 // handlePromise();
 //above code will wait for 10 sec to resolve the promise1 and prmoise2
@@ -614,7 +947,7 @@
 //
 //## Javascript Engine does not wait for anything it is 100% true
 //## Just engine just appears to be waitng over here it is not waiting
-//## Jus engine is not waiting over here right JS engine is not waiting over here, 
+//## Jus engine is not waiting over here right JS engine is not waiting over here,
 // if it has not it is not consuming memory over here it is not waiting it is not it has not
 //actually occupied the call stack I would say right, this handle promise function is not in the call stack
 //when it is waiting over here right otherwise if that was the case then our program or our page will freeze
@@ -635,13 +968,13 @@
 // });
 
 // async function handlePromise(){
-//     console.log("Hello World"); 
+//     console.log("Hello World");
 //     const value1 = await promise1;
 //     console.log("Namaste Javascript");
-//     console.log(value1); 
+//     console.log(value1);
 //     const value2 = await promise2;
 //     console.log("Namaste Javascript");
-//     console.log(value2); 
+//     console.log(value2);
 // }
 // handlePromise();
 //above code will wait for 10 sec to resolve the promise1 and prmoise2
@@ -656,13 +989,13 @@
 // });
 
 // async function handlePromise(){
-//     console.log("Hello World"); 
+//     console.log("Hello World");
 //     const value1 = await promise1;
 //     console.log("Namaste Javascript");
-//     console.log(value1); 
+//     console.log(value1);
 //     const value2 = await promise2;
 //     console.log("Namaste Javascript");
-//     console.log(value2); 
+//     console.log(value2);
 // }
 // handlePromise();
 
@@ -702,7 +1035,7 @@
 // async function handlePromise() {
 //         const data = await fetch(API_URL);
 //         const jsonValue = await data.json()
-//         console.log(jsonValue)   
+//         console.log(jsonValue)
 // }
 // handlePromise().catch((err) => console.log(err));
 
