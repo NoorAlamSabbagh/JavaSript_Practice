@@ -849,19 +849,165 @@
 // handlePromise();
 
 //
-const promise = new Promise((resolve, reject) => {
-   setTimeout(()=> resolve('Promise Resolved Value'), 10000);
-})
+// const promise = new Promise((resolve, reject) => {
+//    setTimeout(()=> resolve('Promise Resolved Value'), 10000);
+// })
 
-async function handlePromise(){
-    console.log('Hello World!!')
-    //JS Engine was waiting for Promise to resolved 
-    const value = await promise;
-    console.log('Namaste JavaScript');
-    console.log(value);
-}
-handlePromise();
+// async function handlePromise(){
+//     console.log('Hello World!!')
+//     //JS Engine was waiting for Promise to resolved 
+//     const value = await promise;
+//     console.log('Namaste JavaScript');
+//     console.log(value);
+// }
+// handlePromise();
 
+//
+//After 10 sec both value will be printed at same time
+// const promise = new Promise((resolve, reject) => {
+//    setTimeout(()=> resolve('Promise Resolved Value'), 10000);
+// })
+
+// async function handlePromise(){
+//     console.log('Hello World!!')
+//     //JS Engine was waiting for Promise to resolved 
+//     const value = await promise;
+//     console.log('Namaste JavaScript');
+//     console.log(value);
+
+//     const value2 = await promise;
+//     console.log('Namaste JavaScript 2.0');
+//     console.log('val2', value2)
+// }
+// handlePromise();
+
+//
+//Now I will use 2 promises
+//  const promise1 = new Promise((resolve, reject) => {
+//        setTimeout(()=> resolve('Promise Resolved Value1'), 10000);
+//     })
+
+//     const promise2 = new Promise((resolve, reject) => {
+//         setTimeout(()=> resolve('Promise Resolved Value2'), 5000);
+//      })
+    
+//     async function handlePromise(){
+//         console.log('Hello World!!')
+//         //JS Engine was waiting for Promise to resolved 
+//         const value1 = await promise1;
+//         console.log('Namaste JavaScript');
+//         console.log('value1',value1);
+    
+//         const value2 = await promise2;
+//         console.log('Namaste JavaScript 2.0');
+//         console.log('value2', value2)
+//     }
+//     handlePromise();
+
+//
+// const promise1 = new Promise((resolve, reject) => {
+//     setTimeout(()=> resolve('Promise Resolved Value1'), 5000);
+//  })
+
+//  const promise2 = new Promise((resolve, reject) => {
+//      setTimeout(()=> resolve('Promise Resolved Value2'), 10000);
+//   })
+ 
+//  async function handlePromise(){
+//      console.log('Hello World!!')
+//      //JS Engine was waiting for Promise to resolved 
+//      const value1 = await promise1;
+//      console.log('Namaste JavaScript');
+//      console.log('value1',value1);
+ 
+//      const value2 = await promise2;
+//      console.log('Namaste JavaScript 2.0');
+//      console.log('value2', value2)
+//  }
+//  handlePromise();
+
+//What happen behind the scenes
+//initially callstack was empty as soon as we call handlePromise function, handlePromise function wil come inside callStack
+//
+// const promise1 = new Promise((resolve, reject) => {
+//     setTimeout(()=> resolve('Promise Resolved Value1'), 5000);
+//  })
+
+//  const promise2 = new Promise((resolve, reject) => {
+//      setTimeout(()=> resolve('Promise Resolved Value2'), 10000);
+//   })
+ 
+//  async function handlePromise(){
+//      console.log('Hello World!!')
+//      //JS Engine was waiting for Promise to resolved 
+//      const value1 = await promise1;
+//      console.log('Namaste JavaScript');
+//      console.log('value1',value1);
+ 
+//      const value2 = await promise2;
+//      console.log('Namaste JavaScript 2.0');
+//      console.log('value2', value2)
+//  }
+//  handlePromise();
+
+//
+//Real world example of async await using fetch function
+//Real world example of async/await
+// const API_URL = "https://api.github.com/users/nooralamsabbagh?"
+// async function handlePromise() {
+//     const data = await fetch(API_URL);
+//     const jsonValue = await data.json()
+//     console.log('jsonValue222', jsonValue)
+// }
+// handlePromise();
+
+//
+// const API_URL = "https://api.github.com/users/nooralamsabbagh?"
+// async function handlePromise(){
+// const data = await fetch(API_URL);
+// const jsonValue = await data.json()
+//     console.log('jsonValue222', jsonValue)
+// // fetch.then((res) => res.json()).then(res=> console.log(res))
+// }
+// handlePromise();
+
+//
+//Now using error handling in async await function
+// const API_URL = "https://api.github.com/users/nooralamsabbagh?"
+// async function handlePromise(){
+//     try{
+//         const data = await fetch(API_URL);
+//         const jsonValue = await data.json()
+//         console.log('JsonValueeee', jsonValue)
+//     }catch(err){
+//         console.log("Error", err)
+//     }
+// }
+// handlePromise();
+
+
+//
+// const Invalid_API_URL = "https://api.github.com/users/noamsabbagh?"
+// async function handlePromise(){
+//     try{
+//         const data = await fetch(Invalid_API_URL);
+//         const jsonValue = await data.json()
+//         console.log('JsonValueeee', jsonValue)
+//     }catch(err){
+//         console.log("Error", err)
+//     }
+// }
+// handlePromise();
+
+//
+//Another way to handle Error
+// const Invalid_API_URL = "https://api.github.com/users/noamsabbagh?"
+// async function handlePromise(){
+//         const data = await fetch(Invalid_API_URL);
+//         const jsonValue = await data.json()
+//         console.log('JsonValueeee', jsonValue);
+// }
+// handlePromise().catch((err) => consolelog(err));
 
 //
 // const promise = new Promise((resolve, reject) => {
@@ -1041,9 +1187,52 @@ handlePromise();
 
 ////Interview Tips///////
 //What is Async and await
+//Async is a keyword which is used with function and async function are different things
+//Await always be used inside async function to handle promises, promises are asynchronous
 
 ///
 //Async/await vs Promise.then/catch
+// Both async/await and .then()/.catch() are used to handle asynchronous code in JavaScript, 
+// but they have different syntax and use cases.
+// 1. Using .then() / .catch() (Promise Chaining)
+// fetch("https://api.github.com/users/nooralamsabbagh")
+//   .then(response => response.json())
+//   .then(data => console.log("User Data:", data))
+//   .catch(error => console.error("Error:", error));
+
+//Pros:
+//   Works in older JavaScript versions (ES6).
+// ✅ Suitable for chaining multiple promises.
+// ✅ Explicit error handling using .catch().
+
+// Cons:
+// ❌ Can lead to callback hell if not structured properly.
+// ❌ Less readable when dealing with multiple async operations.
+
+//
+// 2. Using async/await (Modern Approach)
+// async function fetchUserData() {
+//     try {
+//       const response = await fetch("https://api.github.com/users/nooralamsabbagh");
+//       const data = await response.json();
+//       console.log("User Data:", data);
+//     } catch (error) {
+//       console.error("Error:", error);
+//     }
+//   }
+  
+//   fetchUserData();
+
+// Pros:
+// ✅ More readable and structured like synchronous code.
+// ✅ Easier to debug with try/catch.
+// ✅ Great for complex async flows.
+
+// Cons:
+// ❌ Needs to be inside an async function.
+// ❌ Doesn't allow parallel execution of independent promises (needs Promise.all).
+  
+
 
 
 //<=============================Lecture 7 : this keyword in Javascript ===============================>
