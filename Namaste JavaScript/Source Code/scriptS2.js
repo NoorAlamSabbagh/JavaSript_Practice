@@ -1236,9 +1236,11 @@
 
 
 //<=============================Lecture 7 : this keyword in Javascript ===============================>
+// The this keyword refers to different objects depending on how it is used:
 // (1)This in global space
 //   console.log("this", this);
 //   console.log(this);//global object
+
 // (2)this inside the function
 //the valiue depend on the strict/non-strict mode
 //the value wil be window for non strict mode and undefined for strict mode
@@ -1258,12 +1260,15 @@
 // window.x();
 
 //
-// (3)this in non strict mode-(this substitution)
+// (3)this inside non strict mode-(this substitution)
 // this keyword become global object
+//
 //this keyword value depeneds on how this is called(window)
+//
 // (3)this in strict mode-(this substitution)
 // if the value of this keyword is undefined or null
 //this keyword will be replaced with global object
+
 //only in non strict mode
 // (4)this value depends on how this is called(window)
 // (5)this inside a object's method
@@ -1281,6 +1286,17 @@
 //     }
 // }
 // obj.x()
+
+//
+// const obj = {
+//     a: 10,
+//     x: function(){
+//         console.log(this.a)
+//     }
+// }
+// obj.x()
+
+//
 // (6)call, apply, bind method(sharing methods)
 // const student = {
 //     name: "Akshay",
@@ -1293,7 +1309,10 @@
 //     name: "alam",
 // }
 // student.printName.call(student2)
+
+//
 // (7)this inside arrow function
+// //Arrow function does not have their own this
 // const obj = {
 //     a: 10,
 //     x: function(){

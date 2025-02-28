@@ -1,0 +1,363 @@
+//<===============Lecture 1: Pollyfill for bind method ===========>
+// A polyfill is a piece of code that provides modern functionality on older browsers that do not natively support it. 
+// It allows developers to use new JavaScript features or web platform APIs in outdated environments,
+// ensuring code consistency across different browsers.
+//
+//Thats how below code show traditional bind method work
+// let name = {
+//     firstname: "Noor",
+//     lastname:  "Alam"
+// }
+
+// let printName = function(){
+//     console.log(this.firstname + " " + this.lastname);
+// };
+
+// let printMyName = printName.bind(name);
+// printMyName();
+
+
+//
+//######### Writing our own bind method
+// let name = {
+//     firstname: "Noor",
+//     lastname:  "Alam"
+// }
+
+// let printName = function(){
+//     console.log(this.firstname + " " + this.lastname);
+// };
+
+// let printMyName = printName.bind(name);
+// printMyName();
+
+// //my own bind method
+// //step1
+// // Function.prototype.mybind = function(){
+// //     // this-->printName//this refer to printName method
+// //     // take this as variable
+// //     let obj = this
+// //     return function(){
+// //         printName()//printName refere to this so I have assign a variable for this as obj
+// //     }
+// // }
+// //     
+// // let printMyName2 = printName.mybind(name);
+// // printMyName2();
+
+
+// //step2
+// Function.prototype.mybind = function(...args){
+//     // this-->printName//this refer to printName method
+//     // take this as variable
+//     let obj = this
+//     return function(){
+//         // printName()//printName refere to this so I have assign a variable for this as obj
+//     //    obj.call(name);
+//        obj.call(args[0]);
+//     }
+// }
+// let printMyName2 = printName.mybind(name);
+// printMyName2();
+
+
+///
+// let name = {
+//     firstname: "Noor",
+//     lastname:  "Alam"
+// }
+
+// let printName = function(hometown){
+//     console.log(this.firstname + " " + this.lastname + " , " + hometown);
+// };
+
+// let printMyName = printName.bind(name, "Delhi");
+// printMyName();
+
+// //my own bind method
+// // Function.prototype.mybind = function(...args){
+// //     let obj = this
+// //     return function(){
+// //        obj.call(args[0]);
+// //     }
+// // }
+// // let printMyName2 = printName.mybind(name, "Dehradun");
+// // printMyName2();
+
+// Function.prototype.mybind = function(...args){
+//     let obj = this
+//     params = args.slice(1);
+//     return function(){
+//     //    obj.call(args[0]);
+//        obj.apply(args[0], params);
+//     }
+// }
+// let printMyName2 = printName.mybind(name, "Dehradun");
+// printMyName2();
+
+//
+// let name = {
+//     firstname: "Noor",
+//     lastname:  "Alam"
+// }
+
+// let printName = function(hometown, state){
+//     console.log(this.firstname + " " + this.lastname + " , " + hometown + " , " + state);
+// };
+
+// let printMyName = printName.bind(name, "Delhi");
+// printMyName("Uttar Pradesh");
+
+// //my own bind method
+// Function.prototype.mybind = function(...args){
+//     let obj = this
+//     params = args.slice(1);
+//     return function(...args2){//args2 array for Uttar Pradesh
+//     //    obj.call(args[0]);
+//     //    obj.apply(args[0], params);
+//        obj.apply(args[0], [...params, ...args2]);//ES6 syntax for [...params, ...args2]
+//     }
+// }
+// let printMyName2 = printName.mybind(name, "Dehradun");
+// printMyName2("Uttar Pradesh");
+
+//
+// let name = {
+//     firstname: "Noor",
+//     lastname:  "Alam"
+// }
+
+// let printName = function(hometown, state, country){
+//     console.log(this.firstname + " " + this.lastname + " , " + hometown + " , " + state + " , " + country);
+// };
+
+// let printMyName = printName.bind(name, "Delhi");
+// printMyName("Uttar Pradesh", "India");
+
+// //my own bind method
+// Function.prototype.mybind = function(...args){
+//     let obj = this
+//     params = args.slice(1);
+//     return function(...args2){//args2 array for Uttar Pradesh
+//     //    obj.call(args[0]);
+//     //    obj.apply(args[0], params);
+//        obj.apply(args[0], [...params, ...args2]);//ES6 syntax for [...params, ...args2]
+//     }
+// }
+// let printMyName2 = printName.mybind(name, "Dehradun");
+// printMyName2("Colombo", "Sri Lanka");
+
+
+//
+// let name = {
+//     firstname: "Noor",
+//     lastname:  "Alam"
+// }
+
+// let printName = function(hometown, state, country){
+//     console.log(this.firstname + " " + this.lastname + " , " + hometown + " , " + state + " , " + country);
+// };
+
+// let printMyName = printName.bind(name, "Delhi", "Uttar Pradesh",);
+// printMyName("India");//check this point
+
+// //my own bind method
+// Function.prototype.mybind = function(...args){
+//     let obj = this
+//     params = args.slice(1);
+//     return function(...args2){//args2 array for Uttar Pradesh
+//     //    obj.call(args[0]);
+//     //    obj.apply(args[0], params);
+//        obj.apply(args[0], [...params, ...args2]);//ES6 syntax for [...params, ...args2]
+//     }
+// }
+// let printMyName2 = printName.mybind(name, "Dehradun", "Colombo",);
+// printMyName2("Sri Lanka");
+
+
+
+//<===============Lecture: Call, Apply, bind method===============>
+//     call(), apply(), and bind() in JavaScript
+// These methods allow us to explicitly set the value of this in a function.
+
+//
+// 1. call()
+// 👉 Calls a function with a given this value and arguments passed individually.
+// function greet(name, age) {
+//     console.log(`Hello, my name is ${name} and I am ${age} years old.`);
+// }
+
+// greet.call(null, "Alice", 25); // Output: Hello, my name is Alice and I am 25 years old.
+// ✅ Key Points:
+
+// The first argument is the this context (use null if not needed).
+// Other arguments are passed individually (comma-separated).
+
+// 2. apply()
+// 👉 Similar to call(), but arguments are passed as an array.
+
+// javascript
+// Copy
+// Edit
+// greet.apply(null, ["Bob", 30]); // Output: Hello, my name is Bob and I am 30 years old.
+// ✅ Key Points:
+
+// The first argument is the this context.
+// The second argument is an array of arguments.
+// 3. bind()
+// 👉 Returns a new function with this bound to a specific object.
+
+// const boundGreet = greet.bind(null, "Charlie", 40);
+// boundGreet(); // Output: Hello, my name is Charlie and I am 40 years old.
+// ✅ Key Points:
+
+// Unlike call() and apply(), bind() does not immediately invoke the function.
+// It returns a new function that can be called later.
+// Comparison Table
+// Method	Execution	Argument Format	            Returns a New Function?
+// call()	Immediate	Comma-separated values	    ❌ No
+// apply()	Immediate	Arguments as an array	    ❌ No
+// bind()	Delayed	    Comma-separated values	    ✅ Yes
+
+//
+// Example Use Case: Borrowing Methods
+// const person1 = { name: "Alice" };
+// const person2 = { name: "Bob" };
+
+// function sayHello() {
+//     console.log(`Hello, my name is ${this.name}`);
+// }
+
+// sayHello.call(person1); // Hello, my name is Alice
+// sayHello.apply(person2); // Hello, my name is Bob
+
+// const boundFunction = sayHello.bind(person1);
+// boundFunction(); // Hello, my name is Alice
+// 💡 When to Use?
+
+// call() → When you need to invoke a function immediately with individual arguments.
+// apply() → When arguments are in an array.
+// bind() → When you need a function with a preset this value for later execution.
+
+
+//
+    // let name = {
+    //     firstname: "Noor",
+    //     lastName: "Alam",
+    //     printFullName: function(){
+    //         console.log(this.firstname + " " + this.lastName)
+    //     }
+    // }
+    // name.printFullName();
+
+    // let name2 = {
+    //     firstname: "Sachin",
+    //     lastname: "Tendulkar"
+    // }
+    // //Function borrowing
+    // //call
+    // name.printFullName.call(name2);
+
+
+    //
+    // let name = {
+    // firstName: "Noor",
+    // lastName: "Alam",
+    // }
+
+    // let printFullName = function(hometown, state){
+    //     console.log(this.firstName + " " + this.lastName + " from " + hometown + " , " + state);
+    // }
+    // printFullName.call(name, "Lucknow", "UttarPradesh");
+
+    // let name2 = {
+    //     firstName: "Sachin",
+    //     lastName: "Tendulkar"
+    // }
+    // //Function borrowing
+    // //call
+    // printFullName.call(name2, "Mumbai", "Maharastra");
+    // // The only Difference between call and applly is a way to pass argument
+    // printFullName.apply(name2, ["Mumbai", "Maharastra"]);
+    // //Bind method exactly look same as call method but the difference is that instead of directly calling the call method,
+    // //  bind method bind this method printFullName with object and return the copy of that method
+    // let printMyName = printFullName.bind(name2, "Patna", "Bihar")
+    // console.log(printMyName)
+    // printMyName();
+
+    //
+    // Call method which is used to invoked a function directly by passing in the refference which points to this variable inside the method
+    //Apply is exactly the same as call method but the difference is it take second argument as the array list of the parameter which need to
+    // passed the printfullName function
+    //Bind Method does not directly invoked the method but give the copy of exactly same method which can be invoked later 
+
+
+    // <===============================Debouncing And Throttling==================>
+    // Debouncing Ensures that a function is executed only after a certain delay has passed since the last time it was called.
+    //Debouncing limit the execution of function call
+    //     Example Use Cases:
+    // ✅ Search bar suggestions (wait for user to stop typing).
+    // ✅ Window resizing event (wait for user to finish resizing).
+
+    // Implementation of Debouncing:
+    // function debounce(func, delay) {
+    //     let timer;
+    //     return function (...args) {
+    //         clearTimeout(timer);
+    //         timer = setTimeout(() => func.apply(this, args), delay);
+    //     };
+    // }
+
+    // // Example: Search bar input handling
+    // function searchHandler(event) {
+    //     console.log("Fetching search results for:", event.target.value);
+    // }
+
+    // const debouncedSearch = debounce(searchHandler, 500);
+    // document.getElementById("searchInput").addEventListener("input", debouncedSearch);
+    // 💡 How It Works?
+    // Every time the event fires, it cancels the previous timer and sets a new one.
+    // The function executes only after the user stops triggering the event for delay milliseconds.
+
+    /////////////////////////
+    ///Throttling
+    // Ensures that a function is executed only after a certain delay has passed since the last time it was called.
+    // Example Use Cases:
+    // ✅ Handling scroll events (limit execution to once every X ms).
+    // ✅ Handling window resize efficiently.
+    // ✅ Limiting button clicks (e.g., preventing multiple submissions).
+
+    // Implementation of Throttling:
+
+    // function throttle(func, limit) {
+    //     let inThrottle;
+    //     return function (...args) {
+    //         if (!inThrottle) {
+    //             func.apply(this, args);
+    //             inThrottle = true;
+    //             setTimeout(() => (inThrottle = false), limit);
+    //         }
+    //     };
+    // }
+
+    // // Example: Scroll event handling
+    // function onScroll() {
+    //     console.log("User is scrolling...");
+    // }
+
+    // const throttledScroll = throttle(onScroll, 1000);
+
+    // window.addEventListener("scroll", throttledScroll);
+    // 💡 How It Works?
+    
+    // The function executes immediately on the first event.
+    // Further calls within the limit time are ignored.
+    // After the limit time passes, the function can execute again.
+
+
+    // Key Differences 
+    // Feature	    Debouncing 🕒	                                                   Throttling 🚀
+    // Definition	Executes after a delay when no further calls are made.	            Executes at most once in a given time interval.
+    // Use Cases	Search box, window resize, form validation.	                        Scroll events, button clicks, API rate limiting.
+    // Execution   Style	Waits and delays execution until inactivity.	            Ensures execution happens at regular intervals.
+    // Control	    Controls frequency of function calls.	                            Controls rate of function calls.
