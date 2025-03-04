@@ -78,10 +78,29 @@
 //     bitPositonSet(x, n)
 
 //
-const bitPositonUnSet = (x, n) => {
-    let ans = (x & (~(1<<(n-1))));
-        console.log("ans", ans)
-    }
-    // let x = 19, n = 2;
-    let x = 45, n = 4;
-    bitPositonUnSet(x, n)
+// const bitPositonUnSet = (x, n) => {
+//     let ans = (x & (~(1<<(n-1))));
+//         console.log("ans", ans)
+//     }
+//     // let x = 19, n = 2;
+//     let x = 45, n = 4;
+//     bitPositonUnSet(x, n)
+
+
+//
+//Toggle n-bit: n bit will change 0 to 1 or 1 to 0 and rest will be same and apply xor
+// const toggleNthBit = (x, n) => {
+//     let ans = (x ^ (1<<(n-1)));
+//         console.log("ans", ans)
+//     }
+//     // let x = 19, n = 2;
+//     // let x = 41, n = 4;
+//     let x = 41, n = 3;
+//     toggleNthBit(x, n);
+
+// Use toggleNthBit when you want to flip the bit at a specific position.
+// Use bitPositonUnSet when you want to ensure the bit at a specific position is 0.
+
+
+
+        

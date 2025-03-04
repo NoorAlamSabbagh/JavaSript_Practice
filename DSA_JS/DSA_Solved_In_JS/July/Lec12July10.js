@@ -34,6 +34,14 @@ for (let t = 0; t < T; t++) {
 }
 
 
+// Enter number of test cases: 2
+// Enter N and X: 5 6
+// Enter 5 elements: 2 3 6 5 6
+// 2 4
+// Enter N and X: 4 3
+// Enter 4 elements: 2 4 6 5
+// Not found
+
 
 
 

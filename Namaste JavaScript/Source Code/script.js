@@ -175,9 +175,9 @@
 // function b() {
 //     var x = 10;
 // }
-// console.log(window.a)
-// console.log(a)
-// console.log(this.a)
+// console.log(window.a);
+// console.log(a);
+// console.log(this.a);
 
 //Lecture 6: Undefined vs defined
 // "undefined" indicates that a variable has been declared but not given a value,
@@ -244,7 +244,8 @@
 
 
 //<==================Lecture 9: let & const in JS(Temporal Dead Zone)===============>
-// console.log(b);
+// console.log(b);//Undefined
+// console.log(a);//ReferenceError: Cannot access 'a' before initialization
 // let a = 10;
 // var b = 100;
 
@@ -255,9 +256,9 @@
 // var b = 100;
 
 //
-// console.log(a);//SyntaxError: Identifier 'a' has already been declared
+// console.log(a);//SyntaxError: Identifier 'a' has already been declared //ReferenceError: Cannot access 'a' before initialization
 // let a = 10;
-// let a = 100;
+// // let a = 100;
 
 //
 // let a = 1900;
@@ -340,8 +341,22 @@
 //     console.log(c);
 // }
 // console.log(a);
-// console.log(b);
+//output: 10, 20, 30, 10
+// console.log(b);//ReferenceError: b is not defined
 // console.log(c);
+
+//
+// {
+//    var a = 10;
+//    let b = 20;
+//    const c = 30;
+//    console.log(a);
+//    console.log(b);
+//    console.log(c);
+// }
+// console.log(a);
+// // console.log(b);//ReferenceError: b is not defined
+// console.log(c);//ReferenceError: c is not defined
 
 //
 //Shadowing:shadowing occurs when a variable declared in a certain scope (e.g. a local variable) has the same name as a variable in an outer scope (e.g. a global variable)
@@ -354,7 +369,7 @@
 //     console.log(b);
 //     console.log(c);
 // }
-// console.log(a)
+// console.log(a)// // Prints `10` because `var a = 10;` inside the block modified the global `a = 100` to `a = 10`.
 
 // //
 // let b = 100;
@@ -366,7 +381,7 @@
 //     console.log(b);
 //     console.log(c);
 // }
-// console.log(b)
+// console.log(b)//100
 
 //
 // const c = 100;
@@ -378,11 +393,11 @@
 //     console.log(b);
 //     console.log(c);
 // }
-// console.log(c)
+// console.log(c)//100
 
 
 //
-// // var a = 100;
+// var a = 100;
 // // let a = 100;
 // let b = 100;
 // {
@@ -393,7 +408,7 @@
 //     console.log(b);
 //     console.log(c);
 // }
-// console.log(a)
+// console.log(a)//
 // console.log(b)
 
 //
@@ -666,7 +681,6 @@
 // }
 // x();
 
-
 //
 // function x(){
 // var i = 1;
@@ -690,7 +704,7 @@
 //     }
 //     console.log("Namaste JavaScript");
 // }
-// x();
+// x();//6, 6, 6, 6, 6
 
 //
 // function x(){
@@ -704,7 +718,7 @@
 // }
 // x();
 
-//closesure function close() call everytime  every copy of x 
+//closure function close() call everytime  every copy of x 
 // function x(){
 //     for(var i=1; i<=5; i++){
 //         function close(x){
@@ -721,14 +735,15 @@
 
 //
 // function x(){
+//    // for(var i=1; i<=5; i++){
 //     for(let i=1; i<=5; i++){
 //         setTimeout(function(){
 //             console.log(i);
-//         }, i*1000);
+//         }, 1000);
 //     }
 //     console.log("Namaste JavaScript");
 // }
-// x();
+// x();//it will print 1, 2, 3, 4, 5 because of let varialble
 
 
 
@@ -862,6 +877,7 @@
 // // outer()();
 // var close = outest()("helloWorld");
 // close();
+// //Output: 10 helloWorld 20
 
 //
 // function outest(){
@@ -908,8 +924,8 @@
 //     }
 // }
 // var counter1 = counter()// It cannnot acces directly because of closure encapsulation;
-// counter1();
-// counter1();
+// counter1();//1
+// counter1();//2
 
 // var counter2 = counter()// It cannnot acces directly because of closure encapsulation;
 // counter2();
@@ -1345,15 +1361,15 @@
 // }
 
 //
-// const radius = [3, 1, 2, 4];
-// const calculateArea = function (radius) {
-//     const output = [];
-//     for (let i = 0; i < radius.length; i++) {
-//         output.push(Math.PI * radius[i] * radius[i]);
-//     }
-//     return output;
-// }
-// console.log(calculateArea(radius));
+const radius = [3, 1, 2, 4];
+const calculateArea = function (radius) {
+    const output = [];
+    for (let i = 0; i < radius.length; i++) {
+        output.push(Math.PI * radius[i] * radius[i]);
+    }
+    return output;
+}
+console.log(calculateArea(radius));
 
 // const calculateCircumference = function (radius) {  
 //     const output = [];

@@ -75,10 +75,11 @@
 //Binary Search like words search in dictionary
 //Elements should be shorted in Ascending and Descending order
 const binarySearch = (arr) => {
-    let x = 90;
-    let l = 0;
-    let r = arr.length;
-    let m = 0;
+    let x = 60;
+    let l = 0, r = arr.length, m = 0;
+    // let l = 0;
+    // let r = arr.length;
+    // let m = 0;
 
     while(l<=r){
         m = Math.floor(l + (r-l)/2);
@@ -93,7 +94,7 @@ const binarySearch = (arr) => {
     if(l>r){
         console.log("Elememnt is not present in the array");
     }else{
-        console.log(`Elememnt is not present in the array at ${m}`);
+        console.log(`Elememnt is present in the array at ${m}`);
     }
 
 }

@@ -28,7 +28,6 @@
 //<=============================Lecture 2: Promises ===============================>
 // (1) Promises are a way to handle asynchronous operations in JavaScript. Promise object as a placeholer for the certain 
 // period of time, untill we recieve a value from a asynchronous operation, a container for the future value.
-
 // (2) A Promise is an object representing the eventual completion or failure of an asynchronous operation.
 
 //
@@ -62,7 +61,7 @@
 // const GITHUB_API = "https://api.github.com/users/akshaymarch7";
 // // const GITHUB_API = "https://dummyjson.com/users";
 // const user = fetch(GITHUB_API)
-// console.log(user)
+// // console.log(user)
 // user.then(function(response){
 //     console.log(response)
 // })
@@ -87,8 +86,8 @@
 //         proceedToPayment(orderId)
 //     })
 
-//
-//above code we can write as below
+
+// // above code we can write as below
 // createOrder(cart)
 // .then(function (orderId) {
 //     proceedToPayment(orderId)
@@ -1170,7 +1169,6 @@
 //     }
 //     // fetch().then(res => res.json()).then(res => console.log(res))
 //     //fetch() => Response.json() => jsonValue
-
 // }
 // handlePromise();
 
