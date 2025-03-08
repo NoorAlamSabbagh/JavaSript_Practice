@@ -211,17 +211,36 @@
 
 
 //
-function spaceComplexity() {
-    let arr = [1, 2, 3, 4, 5]
+// function spaceComplexity() {
+//     let arr = [1, 2, 3, 4, 5];
 
-    let product = 1;
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            if (i != j)
-                product = product * arr[i];
+//     let product = 1;
+//     for (let i = 0; i < arr.length; i++) {
+//         product *= arr[i]; // Compute the product of all elements
+//     }
+
+//     console.log(product);
+// }
+
+// spaceComplexity();
+
+//
+function spaceComplexity() {
+    let arr = [1, 2, 3, 4, 5];
+    let n = arr.length;
+    let result = [];
+
+    for (let i = 0; i < n; i++) {
+        let product = 1;
+        for (let j = 0; j < n; j++) {
+            if (i !== j) {
+                product *= arr[j];
+            }
         }
+        result.push(product);
     }
-    console.log(product);
+
+    console.log(result);
 }
 
 spaceComplexity();
