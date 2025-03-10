@@ -63,7 +63,7 @@
 //Same above tsks using recurssion
 // function printDigitsWithRecursion(n) {
 //     if (n === 0) return;
-    
+
 //     let r = n % 10;
 //     printDigitsWithRecursion(Math.floor(n / 10));
 //     process.stdout.write(r.toString()); // Print without newline
@@ -80,3 +80,29 @@
 // // Example usage
 // let n = 1024;
 // printDigitsWithRecursion(n);
+
+//
+//Binary Search using recurssion
+function binarySearch(arr, n, x) {
+    let l = 0;
+    let r = n - 1; // Fix right boundary
+
+    while (l <= r) { // Fix condition
+        let m = Math.floor((l + r) / 2); // Ensure integer index
+
+        if (arr[m] === x) {
+            return m; // Return index if found
+        } else if (arr[m] < x) {
+            l = m + 1; // Search right half
+        } else {
+            r = m - 1; // Search left half
+        }
+    }
+    return -1; // Element not found
+}
+
+let arr = [10, 25, 30, 42, 100];
+let n = arr.length;
+let x = 42;
+
+console.log(binarySearch(arr, n, x)); // Output: 3
