@@ -13,6 +13,27 @@
 // (1)Reducers must always return a new state
 // (2)They should never modify the old state directly.
 
+//
+//<====================Connect React + Redux ====================>
+//To use Redux in a React app. We need to connect Redux's store and actions to React components.
+//This allows components to access the global state and dispatch actions.
+
+//
+//Access Redux State in React using useSelector
+//Use the useSelector hook to read data from  the Redux store
+//Syntax:
+//const count = useSelector(state => state.property);
+//Selector function: We define a selector function that takes the entire Redux store state as an argument
+//and returns the specific piece of data we need
+
+
+
+//
+// Step1: Install react - redux
+// npm install react-redux
+// Step2: Wrap the App with provider
+// Use the provider component to pass the Redux store to the entire component
+
 
 //
 //<============Redux Advantages ==============>
