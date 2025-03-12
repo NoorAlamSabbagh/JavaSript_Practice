@@ -147,18 +147,18 @@
 
 //
 // print pattern
-function printPattern(N, curr=N, flag = true){
+function printPattern(N, curr = N, flag = true) {
     process.stdout.write(curr + " ");
-if(N ===curr && flag== false)
-    return;
+    if (N === curr && flag == false)
+        return;
     // console.log("curr", curr + " ");
 
-    if(flag == true)
+    if (flag == true)
         curr -= 5;
     else
-    curr += 5;
+        curr += 5;
 
-    if(curr <= 0)
+    if (curr <= 0)
         flag = false;
     printPattern(N, curr, flag)
 }
@@ -167,29 +167,3 @@ if(N ===curr && flag== false)
 printPattern(16);
 console.log();
 printPattern(10);
-
-
-
-//
-// function PrintPattern(N, curr = N, flag = true) {
-//     // Print the current value
-//     process.stdout.write(curr + " ");
-
-//     // Base case: If we reached back to N after decreasing and increasing
-//     if (curr === N && !flag) {
-//         return;
-//     }
-
-//     // If we are still decreasing and curr > 0, continue decreasing
-//     if (flag && curr - 5 > 0) {
-//         PrintPattern(N, curr - 5, true);
-//     } else {
-//         // Start increasing when curr <= 0 or we have already decreased to the lowest point
-//         PrintPattern(N, curr + 5, false);
-//     }
-// }
-
-// // Test cases
-// PrintPattern(16); // Output: 16 11 6 1 -4 1 6 11 16
-// console.log();
-// PrintPattern(10); // Output: 10 5 0 5 10
