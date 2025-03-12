@@ -175,8 +175,84 @@
 // printMyName2("Sri Lanka");
 
 
+// <===============================Lecture 2: Debouncing And Throttling==================>
+// Debouncing Ensures that a function is executed only after a certain delay has passed since the last time it was called.
+//Debouncing limit the execution of function call
+//     Example Use Cases:
+// ✅ Search bar suggestions (wait for user to stop typing).
+// ✅ Window resizing event (wait for user to finish resizing).
 
-//<===============Lecture: Call, Apply, bind method===============>
+// Implementation of Debouncing:
+// function debounce(func, delay) {
+//     let timer;
+//     return function (...args) {
+//         clearTimeout(timer);
+//         timer = setTimeout(() => func.apply(this, args), delay);
+//     };
+// }
+
+// // Example: Search bar input handling
+// function searchHandler(event) {
+//     console.log("Fetching search results for:", event.target.value);
+// }
+
+// const debouncedSearch = debounce(searchHandler, 500);
+// document.getElementById("searchInput").addEventListener("input", debouncedSearch);
+// 💡 How It Works?
+// Every time the event fires, it cancels the previous timer and sets a new one.
+// The function executes only after the user stops triggering the event for delay milliseconds.
+
+/////////////////////////
+///Throttling
+// Ensures that a function is executed only after a certain delay has passed since the last time it was called.
+// Example Use Cases:
+// ✅ Handling scroll events (limit execution to once every X ms).
+// ✅ Handling window resize efficiently.
+// ✅ Limiting button clicks (e.g., preventing multiple submissions).
+
+// Implementation of Throttling:
+
+// function throttle(func, limit) {
+//     let inThrottle;
+//     return function (...args) {
+//         if (!inThrottle) {
+//             func.apply(this, args);
+//             inThrottle = true;
+//             setTimeout(() => (inThrottle = false), limit);
+//         }
+//     };
+// }
+
+// // Example: Scroll event handling
+// function onScroll() {
+//     console.log("User is scrolling...");
+// }
+
+// const throttledScroll = throttle(onScroll, 1000);
+
+// window.addEventListener("scroll", throttledScroll);
+// 💡 How It Works?
+
+// The function executes immediately on the first event.
+// Further calls within the limit time are ignored.
+// After the limit time passes, the function can execute again.
+
+
+// Key Differences 
+// Feature	    Debouncing 🕒	                                                   Throttling 🚀
+// Definition	Executes after a delay when no further calls are made.	            Executes at most once in a given time interval.
+// Use Cases	Search box, window resize, form validation.	                        Scroll events, button clicks, API rate limiting.
+// Execution   Style	Waits and delays execution until inactivity.	            Ensures execution happens at regular intervals.
+// Control	    Controls frequency of function calls.	                            Controls rate of function calls.
+
+// Key Difference
+// Debouncing	                                                                Throttling
+// Waits for a certain amount of time after the last event before executing.	Executes the function at most once in a specified time interval.
+// Resets the timer every time a new event occurs.	Does not reset the timer;   it strictly limits the rate of execution.
+// Best for actions that should happen after inactivity (e.g., search input).	Best for actions that should happen at a controlled rate (e.g., scrolling).
+
+
+//<===============Lecture3: Call, Apply, bind method===============>
 //     call(), apply(), and bind() in JavaScript
 // These methods allow us to explicitly set the value of this in a function.
 
@@ -241,123 +317,116 @@
 
 
 //
-    // let name = {
-    //     firstname: "Noor",
-    //     lastName: "Alam",
-    //     printFullName: function(){
-    //         console.log(this.firstname + " " + this.lastName)
-    //     }
-    // }
-    // name.printFullName();
+// let name = {
+//     firstname: "Noor",
+//     lastName: "Alam",
+//     printFullName: function(){
+//         // console.log("name2", name2)
+//         console.log(this.firstname + " " + this.lastName)
+//     }
+// }
+// // name.printFullName();
 
-    // let name2 = {
-    //     firstname: "Sachin",
-    //     lastname: "Tendulkar"
-    // }
-    // //Function borrowing
-    // //call
-    // name.printFullName.call(name2);
-
-
-    //
-    // let name = {
-    // firstName: "Noor",
-    // lastName: "Alam",
-    // }
-
-    // let printFullName = function(hometown, state){
-    //     console.log(this.firstName + " " + this.lastName + " from " + hometown + " , " + state);
-    // }
-    // printFullName.call(name, "Lucknow", "UttarPradesh");
-
-    // let name2 = {
-    //     firstName: "Sachin",
-    //     lastName: "Tendulkar"
-    // }
-    // //Function borrowing
-    // //call
-    // printFullName.call(name2, "Mumbai", "Maharastra");
-    // // The only Difference between call and applly is a way to pass argument
-    // printFullName.apply(name2, ["Mumbai", "Maharastra"]);
-    // //Bind method exactly look same as call method but the difference is that instead of directly calling the call method,
-    // //  bind method bind this method printFullName with object and return the copy of that method
-    // let printMyName = printFullName.bind(name2, "Patna", "Bihar")
-    // console.log(printMyName)
-    // printMyName();
-
-    //
-    // Call method which is used to invoked a function directly by passing in the refference which points to this variable inside the method
-    //Apply is exactly the same as call method but the difference is it take second argument as the array list of the parameter which need to
-    // passed the printfullName function
-    //Bind Method does not directly invoked the method but give the copy of exactly same method which can be invoked later 
+// let name2 = {
+//     firstname: "Sachin",
+//     lastName: "Tendulkar"
+// }
+// //Function borrowing
+// //call
+// name.printFullName.call(name2);
 
 
-    // <===============================Debouncing And Throttling==================>
-    // Debouncing Ensures that a function is executed only after a certain delay has passed since the last time it was called.
-    //Debouncing limit the execution of function call
-    //     Example Use Cases:
-    // ✅ Search bar suggestions (wait for user to stop typing).
-    // ✅ Window resizing event (wait for user to finish resizing).
+//
+// let name = {
+// firstName: "Noor",
+// lastName: "Alam",
+// }
 
-    // Implementation of Debouncing:
-    // function debounce(func, delay) {
-    //     let timer;
-    //     return function (...args) {
-    //         clearTimeout(timer);
-    //         timer = setTimeout(() => func.apply(this, args), delay);
-    //     };
-    // }
+// let printFullName = function(hometown, state){
+//     console.log(this.firstName + " " + this.lastName + " from " + hometown + " , " + state);
+// }
+// printFullName.call(name, "Lucknow", "UttarPradesh");
 
-    // // Example: Search bar input handling
-    // function searchHandler(event) {
-    //     console.log("Fetching search results for:", event.target.value);
-    // }
+// let name2 = {
+//     firstName: "Sachin",
+//     lastName: "Tendulkar"
+// }
+// //Function borrowing
+// //call
+// printFullName.call(name2, "Mumbai", "Maharastra");
+// // The only Difference between call and applly is a way to pass argument
+// printFullName.apply(name2, ["Mumbai", "Maharastra"]);
+// //Bind method exactly look same as call method but the difference is that instead of directly calling the call method,
+// //  bind method bind this method printFullName with object and return the copy of that method
+// let printMyName = printFullName.bind(name2, "Patna", "Bihar")
+// console.log(printMyName)
+// printMyName();
 
-    // const debouncedSearch = debounce(searchHandler, 500);
-    // document.getElementById("searchInput").addEventListener("input", debouncedSearch);
-    // 💡 How It Works?
-    // Every time the event fires, it cancels the previous timer and sets a new one.
-    // The function executes only after the user stops triggering the event for delay milliseconds.
-
-    /////////////////////////
-    ///Throttling
-    // Ensures that a function is executed only after a certain delay has passed since the last time it was called.
-    // Example Use Cases:
-    // ✅ Handling scroll events (limit execution to once every X ms).
-    // ✅ Handling window resize efficiently.
-    // ✅ Limiting button clicks (e.g., preventing multiple submissions).
-
-    // Implementation of Throttling:
-
-    // function throttle(func, limit) {
-    //     let inThrottle;
-    //     return function (...args) {
-    //         if (!inThrottle) {
-    //             func.apply(this, args);
-    //             inThrottle = true;
-    //             setTimeout(() => (inThrottle = false), limit);
-    //         }
-    //     };
-    // }
-
-    // // Example: Scroll event handling
-    // function onScroll() {
-    //     console.log("User is scrolling...");
-    // }
-
-    // const throttledScroll = throttle(onScroll, 1000);
-
-    // window.addEventListener("scroll", throttledScroll);
-    // 💡 How It Works?
-    
-    // The function executes immediately on the first event.
-    // Further calls within the limit time are ignored.
-    // After the limit time passes, the function can execute again.
+//
+// Call method which is used to invoked a function directly by passing in the refference which points to this variable inside the method
+//Apply is exactly the same as call method but the difference is it take second argument as the array list of the parameter which need to
+// passed the printfullName function
+//Bind Method does not directly invoked the method but give the copy of exactly same method which can be invoked later 
 
 
-    // Key Differences 
-    // Feature	    Debouncing 🕒	                                                   Throttling 🚀
-    // Definition	Executes after a delay when no further calls are made.	            Executes at most once in a given time interval.
-    // Use Cases	Search box, window resize, form validation.	                        Scroll events, button clicks, API rate limiting.
-    // Execution   Style	Waits and delays execution until inactivity.	            Ensures execution happens at regular intervals.
-    // Control	    Controls frequency of function calls.	                            Controls rate of function calls.
+//
+//<===================Lec4: Currying==================>
+// Currying is a technique where a function that takes multiple arguments is transformed into a sequence of functions, 
+// each taking one argument
+// function calculatePrice(price) {
+//     return function(discount) {
+//         return function(tax) {
+//             return (price - discount) + (price * tax);
+//         };
+//     };
+// }
+
+// const regular = calculatePrice(100)(5); // 5% discount
+// console.log(regular(0.1)); // 105
+
+//
+// let multiply = function(x, y){
+// console.log(x*y);
+// }
+// let multiplyByTwo = multiply.bind(this, 2);
+
+//
+// let multiply = function(x, y){
+//     console.log(x*y);
+//     }
+// let multiplyByTwoo= function(y){
+//     let x = 2;
+//     console.log(x*y);
+// }
+// let multiplyByTwo = multiply.bind(this, 2);
+
+//
+// let multiply = function(x, y){
+//     console.log(x*y);
+//     }
+// let multiplyByTwo = multiply.bind(this, 2);
+// multiplyByTwo(5);
+
+//
+// let multiply = function(x, y){
+//     console.log(x*y);
+//     }
+// let multiplyByTwo = multiply.bind(this, 2, 3,);
+// multiplyByTwo(5);
+
+//
+// let multiply = function(x, y){
+//     console.log(x*y);
+//     }
+// let multiplyByTwo = multiply.bind(this);
+// multiplyByTwo(5,2)
+
+//
+//Using function closures
+let multiply = function (x) {
+    return function (y) {
+        console.log(x * y);
+    }
+}
+let multiplyByTwo = multiply(5);
+multiplyByTwo(2)
