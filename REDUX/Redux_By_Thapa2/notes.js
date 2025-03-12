@@ -1,4 +1,4 @@
-//(1) Store: The Redux store is like a big box where all your applications data is kept safe. Everything you do with redux 
+//(1) Store: The Redux store is like a big box where all your applications data is kept safe. Everything you do with redux
 // - wheteher adding, removing, updating data goes through this store.
 
 //
@@ -15,6 +15,12 @@
 
 //
 //<====================Connect React + Redux ====================>
+//
+// // Step1: Install react - redux
+// npm install react-redux
+// Step2: Wrap the App with provider
+// Use the provider component to pass the Redux store to the entire component
+
 //To use Redux in a React app. We need to connect Redux's store and actions to React components.
 //This allows components to access the global state and dispatch actions.
 
@@ -26,14 +32,19 @@
 //Selector function: We define a selector function that takes the entire Redux store state as an argument
 //and returns the specific piece of data we need
 
-
+//
+//Lec 7: How to Dispatch actions in react using Redux
+//Dispatch Actions in React using useDispatch
+//Use the useDispatch hook to dispatch actions from a react component
 
 //
-// Step1: Install react - redux
-// npm install react-redux
-// Step2: Wrap the App with provider
-// Use the provider component to pass the Redux store to the entire component
-
+//Redux Thunk in React
+// Redux Thunk is a middleware that allows you to write action creators that return a functions instead of actions.
+//This function can perform asynchronous logic (like API requests) and
+// dispatch actions after the operations is compplete(e.g.' fetching tasks and then dispatching them to the store).
+//
+//When you return a function from an action creator, Redux Thunk provides the dispatch functions as an argument.
+//This allow you to manually dispatch other actons(e.g, When an API call succceeds or fails).
 
 //
 //<============Redux Advantages ==============>
@@ -62,9 +73,9 @@
 // |
 // | Complexity    | High (boilerplate code)         | Moderate                         | Low                        |
 // | Ease of Use   | Requires setup (actions,        | Simple but limited               | Very simple, minimal setup |
-//                   reducers, store, middleware)    
+//                   reducers, store, middleware)
 // | Performance   | Efficient with optimizations    | Can cause unnecessary re-renders | Optimized, re-renders only needed components |
-//                   (e.g., memoization, selectors)  
+//                   (e.g., memoization, selectors)
 
 // | Reactivity    | Manual with `useSelector`       | Directly provides state          | Reactive with selectors    |
 

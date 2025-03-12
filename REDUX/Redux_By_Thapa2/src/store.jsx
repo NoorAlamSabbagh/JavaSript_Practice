@@ -52,10 +52,13 @@
 
 
 /////////////////////////////
-import {createStore} from "redux";
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from '@redux-devtools/extension';
+import { thunk } from "redux-thunk";
 
 const ADD_TASK = "task/add";//best practice to understand what functions is working for
 const DELETE_TASK = "task/delete";
+const FETCH_TASK = "task/fetch";
 
 const initialState = {
     task: [],
@@ -72,11 +75,16 @@ const taskReducer = (state = initialState, action) => {
             };
         case DELETE_TASK:
             const updatedTask = state.task.filter((curTask, index) => {
-                return index !== action.payload; 
+                return index !== action.payload;
             })
             return {
                 ...state,
                 task: updatedTask,
+            };
+        case FETCH_TASK:
+            return {
+                ...state,
+                task: [...state.task, ...action.payload],
             };
         default:
             return state;
@@ -84,7 +92,7 @@ const taskReducer = (state = initialState, action) => {
 }
 
 //Step 2: Create the Redux store using the reducer
-export const store = createStore(taskReducer);
+export const store = createStore(taskReducer, composeWithDevTools(applyMiddleware(thunk)));
 console.log("Store", store);
 
 //Step 3: Log the initial state
@@ -97,6 +105,8 @@ console.log("Initial Store:", store.getState());
 // store.dispatch({type: ADD_TASK, payload: "Buy ThapaTechnical Code"});
 //Now I have use above code as optimized
 store.dispatch(addTask("Buy TT Code"));
+store.dispatch(addTask("Buy Apple"));
+store.dispatch(addTask("Buy Banana"));
 console.log("Updated State: ", store.getState());
 
 // store.dispatch({type: ADD_TASK, payload: "Buy Mango"});
@@ -109,11 +119,23 @@ console.log("Deleted State", store.getState());
 
 //Step5: Create action creators
 // const addTask = (data) => {
-function addTask(data){
-    return {type: ADD_TASK, payload: data}
+export function addTask(data) {
+    return { type: ADD_TASK, payload: data }
 };
 
 // const deleteTask = (id) => {
-function deleteTask(id){
-    return {type: DELETE_TASK, payload: id}
+export function deleteTask(id) {
+    return { type: DELETE_TASK, payload: id }
 }
+
+export function fetchTask() {
+    return async (dispatch) => {
+        try {
+            const res = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=3");
+            const task = await res.json();
+            dispatch({ type: FETCH_TASK, payload: task.map((currTask) => currTask.title),})
+        } catch (error) {
+            console.log("Error", error)
+        }
+    }
+};
