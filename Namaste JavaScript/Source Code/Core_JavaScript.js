@@ -423,10 +423,38 @@
 
 //
 //Using function closures
-let multiply = function (x) {
-    return function (y) {
-        console.log(x * y);
-    }
-}
-let multiplyByTwo = multiply(5);
-multiplyByTwo(2)
+// let multiply = function (x) {
+//     return function (y) {
+//         console.log(x * y);
+//     }
+// }
+// let multiplyByTwo = multiply(5);
+// multiplyByTwo(2);
+
+//<===============Lec5: Async vs deffer attribute in javaScript==================>
+// Async vs Defer in JavaScript
+// The async and defer attributes in JavaScript are used to load external scripts asynchronously.
+// Async Attribute
+// 👉 The async attribute downloads the script asynchronously while the HTML document continues to load.
+// 👉 The script executes immediately after downloading, regardless of the order
+// 👉 Best for non-dependent scripts (e.g., Google Analytics).
+// Example:
+// <script async src="script.js"></script>
+// Defer Attribute
+// 👉 The defer attribute downloads the script asynchronously while the HTML document continues to load.
+// 👉 The script executes only after the HTML document has been fully parsed.
+// 👉 Best for dependent scripts (e.g., jQuery).
+// Example:
+// <script defer src="script.js"></script>
+// 💡 Key Differences
+// async → Downloads and executes the script asynchronously.
+// defer → Downloads the script asynchronously but executes it after the HTML document is fully parsed.
+// When to Use?
+// async → For non-dependent scripts that can execute independently.
+// defer → For scripts that depend on the DOM or other scripts.
+// Example Use Cases
+// async → Google Analytics, social media widgets.
+// defer → jQuery, custom scripts that depend on the DOM.
+
+//<=================Lec6: Event Bubbling and Event Capturing in JavaScript==================>
+    
