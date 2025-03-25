@@ -480,3 +480,4 @@
 // Bubbling → Click events, form submissions.
 
 //<=================Lec7: Event Delegation in JavaScript==================>
+// Event Delegation in JavaScript
