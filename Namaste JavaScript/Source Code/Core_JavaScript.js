@@ -457,4 +457,26 @@
 // defer → jQuery, custom scripts that depend on the DOM.
 
 //<=================Lec6: Event Bubbling and Event Capturing in JavaScript==================>
-    
+// Event Bubbling and Event Capturing in JavaScript
+// Event propagation in JavaScript occurs in two phases: capturing and bubbling.    
+// Event Capturing
+// 👉 The event starts from the top element and trickles down to the target element.
+// 👉 Use addEventListener() with the third parameter set to true.  
+// Example:
+// element.addEventListener("click", myFunction, true);
+// Event Bubbling
+// 👉 The event starts from the target element and bubbles up to the top element.
+// 👉 Use addEventListener() with the third parameter set to false (default).
+// Example:
+// element.addEventListener("click", myFunction);
+// 💡 Key Differences
+// Capturing → Top-down event propagation.
+// Bubbling → Bottom-up event propagation.
+// When to Use?
+// Capturing → For event delegation and handling events at the top level.
+// Bubbling → For handling events on specific elements.
+// Example Use Cases
+// Capturing → Event delegation, global event handling.
+// Bubbling → Click events, form submissions.
+
+//<=================Lec7: Event Delegation in JavaScript==================>
