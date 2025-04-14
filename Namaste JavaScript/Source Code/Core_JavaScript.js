@@ -481,6 +481,117 @@
 
 //<=================Lec7: Event Delegation in JavaScript==================>
 // Event Delegation in JavaScript
+// Event delegation is a technique where a single event listener is attached to a parent element
+// instead of attaching it to multiple child elements. This improves performance and simplifies code.   
+// Example: 
+// <ul id="parent">
+//     <li>Item 1</li>
+//     <li>Item 2</li>
+//     <li>Item 3</li>
+// </ul>    
+// const parent = document.getElementById("parent");
+// parent.addEventListener("click", function(event) {
+//     if (event.target.tagName === "LI") {
+//         console.log("Clicked on:", event.target.textContent);
+//     }
+// });
+// });
+// 💡 Key Benefits
+// Improved performance by reducing the number of event listeners.
+// Simplified code by handling events at a higher level.
+// Dynamic elements can be added without needing to attach new event listeners.
+// Example Use Cases
+// Dynamic lists, menus, and forms.
+// Handling events for dynamically added elements.
+// Handling events for multiple child elements efficiently.
 
-///////////
+//
+// document.querySelector("#category").addEventListener("click", function(event) {
+//     console.log("Clicked on:", event.target.id);
+//     window.location.href = "/" + event.target.id;
+// });
 
+
+//
+// document.querySelector('#form').addEventListener('submit', function(event) {
+//     console.log(e);
+//     if(event.target.dataset.uppercase != undefined) {
+//         event.target.value = event.target.value.toUpperCase();
+//     }
+// })
+
+
+//<=================Lec8: Prototype and inheritance in JavaScript==================>
+// Prototypes and Inheritance in JavaScript
+//  Prototype:	A way to share properties/methods across objects via a hidden link	
+// Inheritance: A mechanism by which one object (child) gets access to another (parent)
+// Prototypes are a fundamental concept in JavaScript that allows for inheritance and sharing of properties and methods.
+// Every JavaScript object has a prototype, which is another object from which it can inherit properties and methods.
+// This allows for efficient memory usage and code reuse.
+// Example:
+// let arr = ["Akshay", "Alok", "Amit"];
+// let object = {
+//     name: "Noor",
+//     city: "Delhi",
+//     getIntro: function(){
+//         console.log(this.name + " from " + this.city);
+//     }
+// }
+
+// let object2 = {
+//     name: "Aditya",
+//     city: "Hyderabad"
+// }
+
+// object.getIntro(); 
+//Never do this
+// object2._proto_= object;
+
+
+//<=============== Lecture9: Throttling in JavaScript =========>
+// Throttling in JavaScript
+// Throttling is a technique used to limit the number of times a function can be executed over time.
+// It ensures that a function is called at most once in a specified time interval.
+// This is useful for performance optimization, especially in scenarios like scrolling, resizing, or API calls.
+
+// Debounce Example (Wait and Fire Once)
+// function debounce(fn, delay) {
+//     let timeoutId;
+//     return function(...args) {
+//         clearTimeout(timeoutId);
+//         timeoutId = setTimeout(() => fn.apply(this, args), delay);
+//     };
+// }
+
+// const onInput = debounce(() => {
+//     console.log("Search triggered");
+// }, 300);
+
+// // Imagine this is triggered on input keypress
+
+// //
+// // Throttle Example (Fire at Intervals)
+// function throttle(fn, limit) {
+//     let lastCall = 0;
+//     return function(...args) {
+//         const now = Date.now();
+//         if (now - lastCall >= limit) {
+//             lastCall = now;
+//             fn.apply(this, args);
+//         }
+//     };
+// }
+
+// const onScroll = throttle(() => {
+//     console.log("Scroll event");
+// }, 500);
+// Triggered on scroll
+
+
+//Debouncing vs Throttling
+// Feature	      Debounce	                                                    Throttle
+// Definition	  Delays the function call until                                Ensures the function is called at
+//               after a certain time has passed since the last call	        most once every specified time interval
+// Use Case	  Typing in a search box, resize events	                        Scrolling, mouse movement, API polling
+// Behavior	  Executes function once after user stops triggering for X ms	Executes function every X ms, no matter how frequently it's triggered
+// Control	      Controls the burst of events	                                Controls the rate of events
