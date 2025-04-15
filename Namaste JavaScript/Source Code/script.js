@@ -90,12 +90,13 @@
 // // var getName = function () {//TypeError: getName is not a function because getname act as a new variiable 
 // //     console.log("Namaste Javascript");
 // // }
-// // function getName(){
-// //     console.log("Namaste Javascript");
-// // }
-// var getName = () => {//TypeError: getName is not a function
+// // function getName = () =>{
+// function getName(){
 //     console.log("Namaste Javascript");
 // }
+// // var getName = () => {//TypeError: getName is not a function
+// //     console.log("Namaste Javascript");
+// // }
 
 //
 // var x = 7;
@@ -244,6 +245,48 @@
 
 
 //<==================Lecture 9: let & const in JS(Temporal Dead Zone)===============>
+// # var
+// Scope: Function-scoped
+// Hoisting: Yes (variables are hoisted and initialized with undefined)
+// Re-declaration: Allowed within the same scope
+// Use Case: Old way of declaring variables (ES5 and earlier)
+// function testVar() {
+//   var x = 1;
+//   if (true) {
+//     var x = 2;  // same variable!
+//     console.log(x); // 2
+//   }
+//   console.log(x); // 2
+// }
+
+//
+// # let
+// Scope: Block-scoped ({})
+// Hoisting: Yes, but not initialized, so accessing it before declaration throws an error (Temporal Dead Zone)
+// Re-declaration: Not allowed in the same scope
+// Use Case: Preferred for variables that will change
+
+//
+// # const
+// Scope: Block-scoped
+// Hoisting: Same as let
+// Re-declaration: Not allowed in the same scope
+// Reassignment: ❌ Not allowed (must be assigned during declaration)
+// Use Case: When you don’t want the variable to be reassigned
+
+// const x = 10;
+// // x = 20; ❌ Error: Assignment to constant variable
+
+//
+
+// Feature	              var	            let	        const
+// Scope	              Function	        Block	    Block
+// Hoisted	              Yes	            Yes	        Yes
+// Initialized?	          Yes (undefined)	No (TDZ)	No (TDZ)
+// Re-declarable	      Yes	            No	        No
+// Reassignable	          Yes	            Yes	        No
+
+
 // console.log(b);//Undefined
 // console.log(a);//ReferenceError: Cannot access 'a' before initialization
 // let a = 10;
@@ -530,7 +573,7 @@
 // function x() {
 //     var a = 7;
 //     function y() {
-//         console.log(a);
+//         console.log(a);//7
 //     }
 //     y();
 // }
@@ -575,7 +618,7 @@
 // function x() {
 //     var a = 7;
 //     function y() {
-//         console.log(a);
+//         console.log(a);//Output:100
 //     }
 //     a = 100;
 //     return y;
@@ -896,7 +939,9 @@
 //     // outer()();
 //     var close = outest()("helloWorld");
 //     close();
+// //Output: 100 helloWorld 20
 
+//
 //Closure for function currying, encapsulation, data hiding
 // var counter = 0;
 // function incrementCounter(){
@@ -1047,7 +1092,6 @@
 
 //
 //Functuion Decleration
-
 //Anonnymous Function
 // function(){
 
@@ -1079,8 +1123,6 @@
 //the ability of functions to be used as values and can be pass this in an argument to another functions and can be returned from the functions is the ability
 
 //Arrow Functions
-
-
 //Lec16 Callback Functions in Js ft Event Listeners
 //(1)What is callback functions in JavaScript
 // function x(){
@@ -1183,13 +1225,9 @@
 // });
 
 //(2)Javascript is a synchronous and single-threadec language
-
 //(3)Blocking the main thread
-
 //(4)Power of Callbacks
-
 //(5)Closure Demo with Event Listeners
-
 //(6)Garbage Collection and removeEvent Listeners
 // function attachEventListener() {
 //     let count = 0;
@@ -1361,15 +1399,15 @@
 // }
 
 //
-const radius = [3, 1, 2, 4];
-const calculateArea = function (radius) {
-    const output = [];
-    for (let i = 0; i < radius.length; i++) {
-        output.push(Math.PI * radius[i] * radius[i]);
-    }
-    return output;
-}
-console.log(calculateArea(radius));
+// const radius = [3, 1, 2, 4];
+// const calculateArea = function (radius) {
+//     const output = [];
+//     for (let i = 0; i < radius.length; i++) {
+//         output.push(Math.PI * radius[i] * radius[i]);
+//     }
+//     return output;
+// }
+// console.log(calculateArea(radius));
 
 // const calculateCircumference = function (radius) {  
 //     const output = [];
