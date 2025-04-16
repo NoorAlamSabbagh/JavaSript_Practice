@@ -1,22 +1,23 @@
-// function twoArray(arr1, arr2, n, m) {
-//     let arr = new Array(n + m); // Create an array with the required size
-//     let i = 0;
+function twoArray(arr1, arr2, n, m) {
+    let arr = new Array(n + m); // Create an array with the required size
+    let i = 0;
 
-//     for (i = 0; i < n; i++) {
-//         arr[i] = arr1[i]
-//     }
-//     for (let j = 0; j < m; j++, i++) {
-//         arr[i] = arr2[j]
-//     }
-//     arr.sort((a, b)=> a-b);
-//     return arr;
-// }
+    for (i = 0; i < n; i++) {
+        arr[i] = arr1[i]
+    }
+    for (let j = 0; j < m; j++, i++) {
+        arr[i] = arr2[j]
+    }
+    arr.sort((a, b)=> a-b);
+    return arr;
+}
+//
 
-// const arr1 = [2, 4, 10, 20, 30];
-// const arr2 = [1, 2, 15, 27, 60, 100, 200];
-// let n = arr1.length;
-// let m = arr2.length;
-// console.log(twoArray(arr1, arr2, n, m));
+const arr1 = [2, 4, 10, 20, 30];
+const arr2 = [1, 2, 15, 27, 60, 100, 200];
+let n = arr1.length;
+let m = arr2.length;
+console.log(twoArray(arr1, arr2, n, m));
 
 // //TimeComplexity of above code is O((n+m)log(n+m))
 
