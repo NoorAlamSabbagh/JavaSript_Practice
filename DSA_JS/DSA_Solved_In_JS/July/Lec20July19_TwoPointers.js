@@ -26,60 +26,62 @@
 
 //
 //<============= Now We are using Two Pointer method ===============>
-function twoPointer(arr1, arr2, n, m) {
-    let arr = [];
-    let i = 0, j = 0, k = 0 //k is used to track the position in the merged array
+// function twoPointer(arr1, arr2, n, m) {
+//     let arr = [];
+//     let i = 0, j = 0, k = 0 //k is used to track the position in the merged array
 
-    while (i < n && j < m) {
-        if (arr1[i] < arr2[j]) {
-            arr[k] = arr1[i]
-            // arr.push(arr1[i]);
-            i++;
-            // k++;
-        } else if (arr1[i] > arr2[j]) {
-            arr[k] = arr2[j];
-            j++;
-            // k++;
-        } else {
-            // Both are equal, so add both
-            arr[k] = arr1[i];
-            i++;
-            // k++;
-            arr[k] = arr2[j];
-            j++;
-            // k++;
-        }
-        k++;
-    }
+//     while (i < n && j < m) {
+//         if (arr1[i] < arr2[j]) {
+//             arr[k] = arr1[i]
+//             // arr.push(arr1[i]);
+//             i++;
+//             // k++;
+//         } else if (arr1[i] > arr2[j]) {
+//             arr[k] = arr2[j];
+//             j++;
+//             // k++;
+//         } else {
+//             // Both are equal, so add both
+//             arr[k] = arr1[i];
+//             i++;
+//             // k++;
+//             arr[k] = arr2[j];
+//             j++;
+//             // k++;
+//         }
+//         k++;
+//     }
 
-    while (i < n) {
-        arr[k] = arr1[i];
-        i++;
-        k++
-    }
-    while (j < n) {
-        arr[k] = arr2[j];
-        j++;
-        k++
-    }
-    return arr;
-}
+//     // Copy remaining elements of arr1
+//     while (i < n) {
+//         arr[k] = arr1[i];
+//         i++;
+//         k++
+//     }
+//     // Copy remaining elements of arr2
+//     while (j < n) {
+//         arr[k] = arr2[j];
+//         j++;
+//         k++
+//     }
+//     return arr;
+// }
 
-const arr1 = [1, 2, 2, 6, 6, 10];// i
-const arr2 = [2, 4, 10, 15, 20, 30];//j
-//Step1: I will compare arr1, arr2 index which value is smaller I will put it in new arr 
-// arr = [1]
-// and I will increase index which arr1 or arr2 value is smaller, Now in the above i at arr[1] = 2 and j at arr[0] = 2 
-//Now in this case I will move both index, 
-//arr = [1, 2, 2, 2]
-// now i of arr1 is at arr[3] = 6 and j of arr2 is at arr2[1] = 4, Now arr2 is smaller so I put arr2 vale and move j index
-//arr[1, 2, 2, 2, 4] and it will continue
-// arr[1, 2, 2, 2, 4, 6, 6, 10, 10, 15, 20, 30]
-//Its time complexity is O(n+m)
+// const arr1 = [1, 2, 2, 6, 6, 10];// i
+// const arr2 = [2, 4, 10, 15, 20, 30];//j
+// //Step1: I will compare arr1, arr2 index which value is smaller I will put it in new arr 
+// // arr = [1]
+// // and I will increase index which arr1 or arr2 value is smaller, Now in the above i at arr[1] = 2 and j at arr[0] = 2 
+// //Now in this case I will move both index, 
+// //arr = [1, 2, 2, 2]
+// // now i of arr1 is at arr[3] = 6 and j of arr2 is at arr2[1] = 4, Now arr2 is smaller so I put arr2 vale and move j index
+// //arr[1, 2, 2, 2, 4] and it will continue
+// // arr[1, 2, 2, 2, 4, 6, 6, 10, 10, 15, 20, 30]
+// //Its time complexity is O(n+m)
 
-let n = arr1.length;
-let m = arr2.length;
-console.log(twoPointer(arr1, arr2, n, m)); 
+// let n = arr1.length;
+// let m = arr2.length;
+// console.log(twoPointer(arr1, arr2, n, m)); 
 
 
 ////////////
@@ -135,9 +137,9 @@ console.log(twoPointer(arr1, arr2, n, m));
 //     let min = Math.abs(arr1[0] - arr2[0]);
 //     console.log("min", min)
 //     while (i < n && j < m) {
-//         let diff = Math.abs(arr1[i] - arr2[j]);
+//         let diff = Math.abs(arr1[i] - arr2[j]);// Calculate the absolute difference
 //         console.log("Diff", diff)
-//         min = Math.min(min, diff)
+//         min = Math.min(min, diff)// Update the minimum difference
 //         if (min === 0)
 //             break;
 //         if (arr1[i] <= arr2[j]) {
@@ -153,4 +155,4 @@ console.log(twoPointer(arr1, arr2, n, m));
 // let n = arr1.length;
 // let m = arr2.length;
 
-// console.log(minimumDifference(arr1, arr2, n, m))
+// console.log(minimumDifference(arr1, arr2, n, m));
