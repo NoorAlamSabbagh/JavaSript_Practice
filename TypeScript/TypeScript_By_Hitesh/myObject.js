@@ -1,11 +1,14 @@
 "use strict";
+// const user = {
+//     name: "John Doe",
+//     email: "alam@gmail.com",
+//     isActive: true,    
+// }
 Object.defineProperty(exports, "__esModule", { value: true });
-var user = {
-    name: "John Doe",
-    email: "alam@gmail.com",
-    isActive: true,
+var myUser = {
+    _id: "12345",
+    name: "Alam",
+    email: "h@h.com",
+    isActive: false
 };
-function createUser(_a) {
-    var string = _a.name, boolean = _a.isPaid;
-}
-createUser({ name: "Alam", isPaid: false });
+myUser.email = "h@gmail.com"; // This is allowed because email is not a readonly property    

@@ -20,15 +20,45 @@
 
 
 //
+// type User = {
+//     name: string;
+//     email: string;
+//     isActive: boolean;
+// }
+
+// function createUser(user: User): User {
+//     return {name: "", email: "", isActive: true}
+// }
+// createUser({name: "", email: "", isActive: true});
+
+
+
+//
 type User = {
+    readonly _id: string;
     name: string;
     email: string;
     isActive: boolean;
+    credcardDetails?: number; // optional property
 }
 
-function createUser(user: User): User {
-    return {name: "", email: "", isActive: true}
+let myUser: User = {
+    _id: "12345",
+    name: "Alam",
+    email: "h@h.com",
+    isActive: false
+}    
+
+type cardNumber = {
+    cardNumber: string;
 }
-createUser({name: "", email: "", isActive: true});
+type cardDate = {
+    cardDate: string;
+}
+type cardDetails = cardNumber & cardDate & {
+    cvv: number;
+}
+
+myUser.email = "h@gmail.com" // This is allowed because email is not a readonly property    
 
 export {}
