@@ -822,7 +822,7 @@
 // handlePromise();
 
 //
-//## Divining Deep into Async Await and see howpromises is handle with async await
+//## Divining Deep into Async Await and see how promises is handle with async await
 // I have try function without asyn and await
 // const promise = new Promise((resolve, reject) => {
 //     setTimeout(()=> {resolve('Promise Resolved Value'), 10000})

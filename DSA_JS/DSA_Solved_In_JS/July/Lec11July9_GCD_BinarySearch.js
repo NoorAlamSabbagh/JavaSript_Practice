@@ -96,7 +96,6 @@ const binarySearch = (arr) => {
     }else{
         console.log(`Elememnt is present in the array at ${m}`);
     }
-
 }
 let arr = [2, 4, 5, 10, 20, 30, 60];
 binarySearch(arr);
