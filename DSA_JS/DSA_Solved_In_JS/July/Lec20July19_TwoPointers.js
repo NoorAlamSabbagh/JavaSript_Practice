@@ -1,28 +1,22 @@
 // function twoArray(arr1, arr2, n, m) {
 //     let arr = new Array(n + m); // Create an array with the required size
 //     let i = 0;
-<<<<<<< HEAD
 
-=======
     
->>>>>>> 17d8f84e7a076044d17b06c178c4e9570c529cc2
 //     for (i = 0; i < n; i++) {
 //         arr[i] = arr1[i]
 //     }
 //     for (let j = 0; j < m; j++, i++) {
 //         arr[i] = arr2[j]
 //     }
-<<<<<<< HEAD
 //     arr.sort((a, b)=> a-b);
 //     return arr;
 // }
-=======
 //     console.log("arr", arr)
 //     arr.sort((a, b)=> a-b);//Time complexity of sort is O(nlogn)
 //     return arr;
 // }
 // //
->>>>>>> 17d8f84e7a076044d17b06c178c4e9570c529cc2
 
 // const arr1 = [2, 4, 10, 20, 30];
 // const arr2 = [1, 2, 15, 27, 60, 100, 200];
@@ -30,22 +24,16 @@
 // let m = arr2.length;
 // console.log(twoArray(arr1, arr2, n, m));
 
-<<<<<<< HEAD
-=======
 // Time Complexity of above code is O(n+m) for merging and O((n+m)log(n+m)) for sorting.
 // // So overall time complexity is O((n+m)log(n+m))
->>>>>>> 17d8f84e7a076044d17b06c178c4e9570c529cc2
 // //TimeComplexity of above code is O((n+m)log(n+m))
 
 //
 //<============= Now We are using Two Pointer method ===============>
 // function twoPointer(arr1, arr2, n, m) {
 //     let arr = [];
-<<<<<<< HEAD
 //     let i = 0, j = 0, k = 0
-=======
 //     let i = 0, j = 0, k = 0 //k is used to track the position in the merged array
->>>>>>> 17d8f84e7a076044d17b06c178c4e9570c529cc2
 
 //     while (i < n && j < m) {
 //         if (arr1[i] < arr2[j]) {
@@ -61,34 +49,25 @@
 //             // Both are equal, so add both
 //             arr[k] = arr1[i];
 //             i++;
-<<<<<<< HEAD
 //             k++;
 //             arr[k] = arr2[j];
 //             j++;
 //             k++;
-=======
 //             // k++;
 //             arr[k] = arr2[j];
 //             j++;
 //             // k++;
->>>>>>> 17d8f84e7a076044d17b06c178c4e9570c529cc2
 //         }
 //         k++;
 //     }
 
-<<<<<<< HEAD
-=======
 //     // Copy remaining elements of arr1
->>>>>>> 17d8f84e7a076044d17b06c178c4e9570c529cc2
 //     while (i < n) {
 //         arr[k] = arr1[i];
 //         i++;
 //         k++
 //     }
-<<<<<<< HEAD
-=======
 //     // Copy remaining elements of arr2
->>>>>>> 17d8f84e7a076044d17b06c178c4e9570c529cc2
 //     while (j < n) {
 //         arr[k] = arr2[j];
 //         j++;
@@ -162,7 +141,6 @@
 
 
 //<===================Shortest Mininum Difference ========>
-<<<<<<< HEAD
 function minimumDifference(arr1, arr2, n, m) {
     let i = 0, j = 0;
     let min = Math.abs(arr1[0] - arr2[0]);
@@ -187,7 +165,6 @@ let n = arr1.length;
 let m = arr2.length;
 
 console.log(minimumDifference(arr1, arr2, n, m))
-=======
 // function minimumDifference(arr1, arr2, n, m) {
 //     let i = 0, j = 0;
 //     let min = Math.abs(arr1[0] - arr2[0]);
@@ -212,4 +189,3 @@ console.log(minimumDifference(arr1, arr2, n, m))
 // let m = arr2.length;
 
 // console.log(minimumDifference(arr1, arr2, n, m));
->>>>>>> 17d8f84e7a076044d17b06c178c4e9570c529cc2
