@@ -83,8 +83,6 @@
 //     console.log("Namaste JavaScript")
 // }
 
-
-
 //Lecture 4: How Functions work in JS
 // var x = 1;
 // a();
@@ -100,7 +98,6 @@
 //     console.log(x);
 // }
 
-
 //Lecture 5: Shortest JS Program
 // var a = 10;
 // function b() {
@@ -109,7 +106,6 @@
 // console.log(window.a)
 // console.log(a)
 // console.log(this.a)
-
 
 //Lecture 6: Undefined vs defined
 // console.log(a);
@@ -124,7 +120,6 @@
 // a = "helloworld";
 // console.log(a);
 
-
 //
 // var a;
 // a = 10;
@@ -134,8 +129,6 @@
 // else {
 //     console.log("a is not undefined")
 // }
-
-
 
 //Lecture 8: The scope chain, Scope and Lexical Environment
 // function a() {
@@ -166,8 +159,6 @@
 
 // a();
 // console.log(b);
-
-
 //
 // let returnLarger = (arr, num) => arr.filter(n => n > num);
 
@@ -175,7 +166,7 @@
 // console.log(returnLarger([6, 46, 54, 6, 56, 54, 65, 4, 65], 50))
 
 
-//Lecture 9: let & const in JS(Temporal Dead Zone)
+//<============== Lecture 9: let & const in JS(Temporal Dead Zone) ==================>
 // console.log(b);
 // let a = 10;
 // var b = 100;
@@ -212,7 +203,6 @@
 // const b = 100;
 // a = 10;
 // console.log(a)
-
 
 //Lecture 10: BLOCK SCOPE & Shadowing In JS-------------------------------------
 //SCOPE:Scope determines the accessibility (visibility) of variables. JavaScript has 3 types of scope: Block scope; Function scope; Global scope ..
