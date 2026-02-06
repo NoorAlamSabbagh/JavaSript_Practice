@@ -1,6 +1,7 @@
 // function twoArray(arr1, arr2, n, m) {
 //     let arr = new Array(n + m); // Create an array with the required size
 //     let i = 0;
+
     
 //     for (i = 0; i < n; i++) {
 //         arr[i] = arr1[i]
@@ -8,6 +9,9 @@
 //     for (let j = 0; j < m; j++, i++) {
 //         arr[i] = arr2[j]
 //     }
+//     arr.sort((a, b)=> a-b);
+//     return arr;
+// }
 //     console.log("arr", arr)
 //     arr.sort((a, b)=> a-b);//Time complexity of sort is O(nlogn)
 //     return arr;
@@ -28,6 +32,7 @@
 //<============= Now We are using Two Pointer method ===============>
 // function twoPointer(arr1, arr2, n, m) {
 //     let arr = [];
+//     let i = 0, j = 0, k = 0
 //     let i = 0, j = 0, k = 0 //k is used to track the position in the merged array
 
 //     while (i < n && j < m) {
@@ -44,6 +49,10 @@
 //             // Both are equal, so add both
 //             arr[k] = arr1[i];
 //             i++;
+//             k++;
+//             arr[k] = arr2[j];
+//             j++;
+//             k++;
 //             // k++;
 //             arr[k] = arr2[j];
 //             j++;
@@ -132,6 +141,30 @@
 
 
 //<===================Shortest Mininum Difference ========>
+function minimumDifference(arr1, arr2, n, m) {
+    let i = 0, j = 0;
+    let min = Math.abs(arr1[0] - arr2[0]);
+    console.log("min", min)
+    while (i < n && j < m) {
+        let diff = Math.abs(arr1[i] - arr2[j]);
+        console.log("Diff", diff)
+        min = Math.min(min, diff)
+        if (min === 0)
+            break;
+        if (arr1[i] <= arr2[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    return min
+}
+const arr1 = [12, 15, 16, 19, 21, 29];
+const arr2 = [1, 2, 3, 58, 61, 65];
+let n = arr1.length;
+let m = arr2.length;
+
+console.log(minimumDifference(arr1, arr2, n, m))
 // function minimumDifference(arr1, arr2, n, m) {
 //     let i = 0, j = 0;
 //     let min = Math.abs(arr1[0] - arr2[0]);

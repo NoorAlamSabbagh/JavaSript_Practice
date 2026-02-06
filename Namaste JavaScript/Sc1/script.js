@@ -1,4 +1,8 @@
 //Lecture 2
+// Javascript is a single threaded synchronous language(one task at a time)
+//Eveything in JS happens inside an execution context
+//Execution Context: An execution context is an abstract concept that holds information about the environment within which the current code is being executed
+//There are two types of execution context: Global Execution Context and Function Execution Context
 // var n = 2;
 // function square(num) {
 //     var ans = num * num;
