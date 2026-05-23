@@ -30,7 +30,8 @@
 //
 // getName();
 // console.log(a);
-// // Hoisting:Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope 
+// // Hoisting:Hoisting is JavaScript's default behavior of moving all declarations to the top 
+// of the current scope 
 // // hoisting allows you to use functions and variables before they're declared
 // var a = 10;
 //  function getName(){
@@ -38,6 +39,44 @@
 //  }
 
 //
+// console.log(a); // undefined
+// var a = 10;
+// console.log(a); // 10
+
+//
+// var a;
+// console.log(a); // undefined
+// a = 10;
+
+//
+// console.log(b); // ❌ ReferenceError
+// let b = 20;
+
+//
+// Function Declaration Hoisting
+// greet(); // Works
+
+// function greet() {
+//   console.log("Hello");
+// }
+
+//
+//Function Expression (Not Fully Hoisted)
+// sayHi(); // ❌ TypeError
+
+// var sayHi = function () {
+//   console.log("Hi");
+// };
+
+//
+// Arrow Function Hoisting
+// test(); // ❌ ReferenceError
+
+// const test = () => {
+//   console.log("Arrow");
+// };
+
+
 //callStack
 // getName()
 // console.log(x);
@@ -163,15 +202,21 @@
 
 //<====================Call Stack =======================>
 // https://www.javatpoint.com/javascript-call-stack
-//Callstack knowns as various names like execution context stack, program stack, control stack, runtime stack, machine stack.
+//Callstack knowns as various names like execution context stack, program stack,
+// control stack, runtime stack, machine stack.
 //In order to manage the execution contexts, the JavaScript engine uses a call stack
 // A call stack is a way for the JavaScript engine to keep track of its place in code that calls multiple functions. 
 //It has information on what function is being run and what functions are invoked from within that function.
 
+//
+// In One Line (Interview)
+// 👉 Call stack is a data structure that keeps track of function execution in order 
+// (LIFO - Last In First Out).
 
 //<=================Lecture 5: this is Shortest JS Program ============>
 // The this keyword refers to different objects depending on how it is used:
-//Whenever js code is run  a global object is created, a global execution context is created along execution contest this is created.
+//Whenever js code is run  a global object is created, a global execution context is created along execution 
+//contest this is created.
 // var a = 10;
 // function b() {
 //     var x = 10;
@@ -336,7 +381,8 @@
 // let a = 10;
 // var b = 100;
 
-//Temporal Dead Zone:Temporal Dead Zone is the period of time during which the let and const declarations cannot be accessed.
+//Temporal Dead Zone:Temporal Dead Zone is the period of time during which the let and const 
+// declarations cannot be accessed.
 // Cannot access 'a' before initialization
 // Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope
 //its show error
@@ -373,7 +419,8 @@
 //Lecture 10: BLOCK SCOPE & Shadowing In JS-------------------------------------
 //{ } : A block of code is a set of statements that are grouped together.
 //with all the variable and function inside this block
-//SCOPE:Scope determines the accessibility (visibility) of variables. JavaScript has 3 types of scope: Block scope; Function scope; Global scope ..
+//SCOPE:Scope determines the accessibility (visibility) of variables. JavaScript has 3 types of scope:
+// Block scope; Function scope; Global scope ..
 //BLOCK SCOPE : This scope restricts the variable that is declared inside a specific block, from access by the outside of the block
 // {
 //     var a = 10;
@@ -402,7 +449,8 @@
 // console.log(c);//ReferenceError: c is not defined
 
 //
-//Shadowing:shadowing occurs when a variable declared in a certain scope (e.g. a local variable) has the same name as a variable in an outer scope (e.g. a global variable)
+//Shadowing:shadowing occurs when a variable declared in a certain scope (e.g. a local variable) 
+//has the same name as a variable in an outer scope (e.g. a global variable)
 // var a = 100;
 // {
 //     var a = 10;
@@ -540,10 +588,22 @@
 // }
 
 //
-
-//
 //What is Lexical Scope in JavaScript? Lexical scope is the definition area of an expression.
 //  In other words, an item's lexical scope is the place in which the item got created
+// 👉 Lexical scope means a function can access variables based on where it is written in the code, 
+// not where it is called.
+// //
+// function outer() {
+//   let a = 10;
+
+//   function inner() {
+//     console.log(a); // 10
+//   }
+//   inner();
+// }
+// outer();
+
+//
 // const a = 20;
 // {
 //     const a = 100;
@@ -552,7 +612,6 @@
 //     }
 //     console.log(a);
 // }
-
 
 //Lecture 11: QnA-------------------------------------
 
@@ -630,18 +689,18 @@
 
 
 //
-// function z() {
-//     var b = 900;
-//     function x() {
-//         var a = 7;
-//         function y() {
-//             console.log(a, b);
-//         }
-//         y();
-//     }
-//     x();
-// }
-// z();
+function z() {
+    var b = 900;
+    function x() {
+        var a = 7;
+        function y() {
+            console.log(a, b);
+        }
+        y();
+    }
+    x();
+}
+z();
 
 
 
